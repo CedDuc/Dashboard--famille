@@ -7,18 +7,16 @@
 
 <style>
 :root{
-  --bg:#071014;
-  --panel:rgba(7,15,18,.82);
-  --panel2:rgba(10,18,21,.72);
-  --border:rgba(255,255,255,.22);
-  --text:#f7f7f7;
-  --muted:#b9b9b9;
-  --blue:#4fa8ff;
-  --green:#82df48;
-  --orange:#ff982e;
-  --yellow:#ffd62e;
-  --purple:#b978ff;
-  --pink:#f48aaa;
+  --panel:rgba(5,14,18,.88);
+  --border:rgba(255,255,255,.25);
+  --white:#f7f7f7;
+  --muted:#b7b7b7;
+  --blue:#45a8ff;
+  --green:#7edb39;
+  --orange:#ff941e;
+  --yellow:#ffd322;
+  --purple:#b66cff;
+  --pink:#f584a7;
 }
 
 *{box-sizing:border-box}
@@ -29,13 +27,12 @@ html,body{
   height:100%;
   overflow:hidden;
   font-family:Arial,Helvetica,sans-serif;
-  color:var(--text);
-  background:#080d10;
+  color:white;
 }
 
 body{
   background:
-    linear-gradient(rgba(4,9,12,.30),rgba(4,9,12,.48)),
+    linear-gradient(rgba(3,10,14,.28),rgba(3,10,14,.45)),
     url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=90");
   background-size:cover;
   background-position:center;
@@ -44,10 +41,10 @@ body{
 .dashboard{
   width:100vw;
   height:100vh;
-  padding:24px 34px 18px;
+  padding:20px 26px 14px;
   display:grid;
-  grid-template-rows:110px 1fr 270px 55px;
-  gap:16px;
+  grid-template-rows:102px 1fr 56px;
+  gap:14px;
 }
 
 /* HEADER */
@@ -59,36 +56,34 @@ header{
 }
 
 .hello{
-  font-family:cursive;
-  font-size:34px;
   color:#ffc928;
+  font-family:cursive;
+  font-size:31px;
   line-height:1;
-  margin-bottom:3px;
 }
 
-.family-row{
+.family-line{
+  margin-top:4px;
   display:flex;
   align-items:center;
-  gap:18px;
 }
 
 .family{
-  font-size:48px;
+  font-size:46px;
   font-weight:300;
-  letter-spacing:-1px;
 }
 
-.family-sub{
+.family-info{
+  margin-left:22px;
+  padding-left:22px;
   border-left:1px solid rgba(255,255,255,.35);
-  padding-left:18px;
   display:flex;
   gap:12px;
   align-items:center;
   font-size:18px;
-  line-height:1.25;
 }
 
-.people-icon{
+.family-icon{
   font-size:34px;
 }
 
@@ -97,179 +92,277 @@ header{
 }
 
 #time{
-  font-size:68px;
+  font-size:66px;
   font-weight:300;
   line-height:.95;
 }
 
 #date{
-  margin-top:12px;
-  font-size:25px;
-  font-weight:300;
-  color:#ddd;
+  margin-top:8px;
+  font-size:24px;
+  color:#eee;
+}
+
+/* LAYOUT */
+
+.content{
+  min-height:0;
+  display:grid;
+  grid-template-columns:43.5% 56.5%;
+  gap:16px;
+}
+
+.left-column{
+  min-height:0;
+  display:grid;
+  grid-template-rows:1.65fr .75fr 1fr;
+  gap:14px;
+}
+
+.right-column{
+  min-height:0;
+  display:grid;
+  grid-template-rows:.9fr 1.05fr .9fr;
+  gap:14px;
+}
+
+.middle-right{
+  display:grid;
+  grid-template-columns:32% 68%;
+  gap:14px;
 }
 
 /* PANELS */
 
 .panel{
-  background:linear-gradient(145deg,var(--panel),rgba(5,12,15,.88));
+  background:
+    linear-gradient(145deg,rgba(4,15,20,.92),rgba(5,14,18,.82));
   border:1px solid var(--border);
   border-radius:15px;
-  box-shadow:0 8px 28px rgba(0,0,0,.28);
+  box-shadow:0 8px 28px rgba(0,0,0,.26);
   backdrop-filter:blur(8px);
   overflow:hidden;
 }
 
 .panel-title{
-  font-size:18px;
-  font-weight:700;
-  letter-spacing:.5px;
-  text-transform:uppercase;
   display:flex;
   align-items:center;
   gap:10px;
+  font-size:19px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.4px;
 }
-
-.top-grid{
-  display:grid;
-  grid-template-columns:43% 57%;
-  gap:16px;
-  min-height:0;
-}
-
-.left-today{
-  padding:18px 22px;
-}
-
-.right-zone{
-  display:grid;
-  grid-template-rows:1fr 228px;
-  gap:14px;
-  min-height:0;
-}
-
-.mid-right{
-  display:grid;
-  grid-template-columns:1fr 1.1fr;
-  gap:14px;
-}
-
-/* TODAY */
-
-.today-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding-bottom:13px;
-  border-bottom:1px solid rgba(255,255,255,.15);
-}
-
-.today-head .panel-title{color:#c98cff}
 
 .soft-button{
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.06);
-  color:white;
-  border-radius:22px;
-  padding:9px 16px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:20px;
+  padding:8px 15px;
+  background:rgba(255,255,255,.05);
+  color:#fff;
   font-size:12px;
 }
 
-.event{
-  min-height:64px;
-  display:grid;
-  grid-template-columns:80px 52px 1fr 55px;
-  align-items:center;
-  border-bottom:1px solid rgba(255,255,255,.12);
-  position:relative;
-  padding-left:10px;
+/* AUJOURD'HUI */
+
+.today{
+  padding:17px 20px;
 }
 
-.event:last-child{border-bottom:none}
+.today-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(255,255,255,.13);
+}
 
-.event::before{
+.today .panel-title{
+  color:#c37dff;
+}
+
+.event{
+  position:relative;
+  display:grid;
+  grid-template-columns:76px 48px 1fr 55px;
+  align-items:center;
+  min-height:61px;
+  padding-left:10px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.event:last-child{
+  border-bottom:0;
+}
+
+.event:before{
   content:"";
   position:absolute;
   left:0;
   top:8px;
   bottom:8px;
   width:3px;
-  background:var(--event-color);
+  background:var(--c);
 }
 
 .event-time{
+  color:var(--c);
   font-size:20px;
-  color:var(--event-color);
 }
 
 .event-icon{
-  font-size:29px;
-  color:var(--event-color);
+  color:var(--c);
+  font-size:28px;
   text-align:center;
 }
 
-.event-name{
-  font-size:20px;
-  font-weight:500;
+.event-title{
+  font-size:19px;
 }
 
 .event-place{
   color:#bbb;
-  font-size:15px;
+  font-size:14px;
   margin-top:3px;
 }
 
 .event-duration{
-  color:var(--event-color);
+  color:var(--c);
   font-size:16px;
   text-align:right;
 }
 
+/* ANNIVERSAIRES */
+
+.birthdays{
+  padding:16px 20px;
+}
+
+.birthdays .panel-title{
+  color:var(--pink);
+}
+
+.birthday{
+  display:grid;
+  grid-template-columns:82px 1fr 65px;
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.13);
+  font-size:16px;
+}
+
+.birthday-age{
+  color:var(--pink);
+  text-align:right;
+}
+
+.birthdays .soft-button{
+  width:100%;
+  margin-top:12px;
+}
+
+/* SEMAINE */
+
+.week{
+  padding:15px 20px;
+}
+
+.week-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.week .panel-title{
+  color:var(--blue);
+}
+
+.week-days{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  margin-top:13px;
+}
+
+.week-day{
+  padding:0 10px;
+  border-right:1px solid rgba(255,255,255,.12);
+}
+
+.week-day:last-child{
+  border-right:none;
+}
+
+.day-name{
+  font-size:14px;
+  font-weight:bold;
+}
+
+.day-number{
+  font-size:24px;
+  margin:5px 0 8px;
+}
+
+.day-number.today-number{
+  width:35px;
+  height:35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#337dea;
+}
+
+.week-event{
+  font-size:14px;
+  margin-top:5px;
+}
+
+.blue{color:var(--blue)}
+.green{color:var(--green)}
+.orange{color:var(--orange)}
+.yellow{color:var(--yellow)}
+
 /* WEATHER */
 
 .weather{
-  padding:18px 26px;
+  padding:17px 24px;
   display:grid;
-  grid-template-columns:260px 1fr;
-  align-items:center;
+  grid-template-columns:250px 1fr;
 }
 
-.weather-now{
+.weather-current{
   border-right:1px solid rgba(255,255,255,.13);
-  padding-right:24px;
 }
 
-.weather-big{
+.weather-main{
   display:flex;
+  gap:15px;
   align-items:center;
-  gap:18px;
 }
 
-.weather-main-icon{
+#weather-icon{
   font-size:60px;
 }
 
 #temperature{
-  font-size:68px;
+  font-size:66px;
   font-weight:300;
 }
 
-.weather-city{
-  font-size:22px;
+.weather-place{
+  margin-top:4px;
+  font-size:21px;
+}
+
+#weather-desc{
+  font-size:17px;
   margin-top:4px;
 }
 
-.weather-desc{
-  font-size:18px;
-  margin-top:4px;
-  color:#eee;
-}
-
-.weather-details{
+.weather-extra{
+  margin-top:14px;
   display:flex;
-  gap:16px;
-  margin-top:16px;
-  font-size:16px;
+  gap:14px;
+  font-size:15px;
 }
 
 .forecast{
@@ -282,245 +375,151 @@ header{
   border-right:1px solid rgba(255,255,255,.10);
 }
 
-.forecast-day:last-child{border-right:none}
-
-.f-day{
-  font-weight:600;
-  margin-bottom:12px;
+.forecast-day:last-child{
+  border-right:0;
 }
 
-.f-icon{
-  font-size:33px;
+.forecast-name{
+  font-size:14px;
+  font-weight:bold;
 }
 
-.f-max{
-  font-size:22px;
-  margin-top:12px;
+.forecast-icon{
+  font-size:31px;
+  margin:13px 0;
 }
 
-.f-min{
-  font-size:18px;
-  color:#ddd;
-  margin-top:7px;
+.forecast-max{
+  font-size:20px;
 }
 
-/* SHOPPING */
+.forecast-min{
+  font-size:17px;
+  color:#ccc;
+  margin-top:6px;
+}
+
+/* GRANDE LISTE DE COURSES */
 
 .shopping{
-  padding:17px 20px;
+  padding:17px 22px;
 }
 
-.shopping .panel-title{color:var(--green)}
-
-.shopping-body{
-  display:grid;
-  grid-template-columns:1fr 130px;
-  height:170px;
-  margin-top:12px;
-}
-
-.shop-list{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.shop-item{
-  font-size:17px;
-}
-
-.shop-item input{
-  appearance:none;
-  width:17px;
-  height:17px;
-  border:2px solid #ccc;
-  border-radius:3px;
-  margin-right:10px;
-  vertical-align:-3px;
-}
-
-.bag{
-  align-self:center;
-  justify-self:center;
-  font-size:78px;
-  opacity:.9;
+.shopping .panel-title{
   color:var(--green);
 }
 
-/* BIRTHDAYS */
-
-.birthdays{
-  padding:17px 20px;
+.shopping-content{
+  display:grid;
+  grid-template-columns:1fr 190px;
+  height:calc(100% - 32px);
+  margin-top:13px;
 }
 
-.birthdays .panel-title{color:var(--pink)}
-
-.birthday-row{
+.shopping-list{
   display:grid;
-  grid-template-columns:90px 1fr 80px;
-  align-items:center;
-  padding:14px 0;
-  border-bottom:1px solid rgba(255,255,255,.13);
+  grid-template-columns:repeat(2,1fr);
+  align-content:start;
+  gap:10px 28px;
+}
+
+.shop{
   font-size:17px;
-}
-
-.birthday-age{
-  text-align:right;
-  color:var(--pink);
-}
-
-.birthdays .soft-button{
-  width:100%;
-  margin-top:14px;
-}
-
-/* LOWER GRID */
-
-.bottom-grid{
-  display:grid;
-  grid-template-columns:56% 19% 25%;
-  gap:14px;
-}
-
-.week{
-  padding:16px 20px;
-}
-
-.week-head{
   display:flex;
-  justify-content:space-between;
   align-items:center;
 }
 
-.week .panel-title{color:var(--blue)}
-
-.week-days{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  margin-top:14px;
-  height:180px;
+.checkbox{
+  width:18px;
+  height:18px;
+  border:2px solid #ccc;
+  border-radius:3px;
+  margin-right:11px;
 }
 
-.week-day{
-  padding:0 12px;
-  border-right:1px solid rgba(255,255,255,.12);
-}
-
-.week-day:last-child{border-right:none}
-
-.week-name{
-  font-size:14px;
-  font-weight:700;
-  margin-bottom:4px;
-}
-
-.week-number{
-  font-size:25px;
-  margin-bottom:12px;
-}
-
-.week-number.today{
-  display:inline-flex;
-  width:36px;
-  height:36px;
+.shopping-bag{
+  display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:50%;
-  background:#337be9;
+  font-size:95px;
+  color:var(--green);
 }
 
-.week-event{
-  font-size:15px;
-  margin:6px 0;
-}
-
-.blue{color:var(--blue)}
-.green{color:var(--green)}
-.orange{color:var(--orange)}
-.yellow{color:var(--yellow)}
-.purple{color:var(--purple)}
-
-/* REMINDERS */
+/* A RETENIR */
 
 .reminders{
-  padding:16px 18px;
+  padding:16px 21px;
 }
 
-.reminders .panel-title{color:var(--blue)}
-
-.reminder{
-  margin-top:14px;
-  font-size:15px;
-  line-height:1.35;
-}
-
-.reminder::before{
-  content:"• ";
+.reminders .panel-title{
   color:var(--blue);
 }
 
-/* FAMILY IMAGE */
-
-.family-card{
-  position:relative;
-  background:
-    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.25)),
-    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=88");
-  background-size:cover;
-  background-position:center;
+.reminder-list{
+  margin-top:13px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px 25px;
 }
 
-.family-message{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-  font-family:cursive;
-  font-size:30px;
-  line-height:1.25;
-  text-shadow:0 2px 8px rgba(0,0,0,.8);
+.reminder{
+  font-size:15px;
+}
+
+.reminder:before{
+  content:"•";
+  margin-right:8px;
+  color:var(--blue);
 }
 
 /* FOOTER */
 
 footer{
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:14px;
-  background:rgba(7,12,15,.78);
+  height:56px;
   display:grid;
-  grid-template-columns:290px 1fr 130px;
+  grid-template-columns:310px 1fr 130px;
   align-items:center;
   padding:0 18px;
-  font-size:16px;
+  background:rgba(5,13,17,.82);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:14px;
+  font-size:15px;
 }
 
 .footer-center{
   text-align:center;
-  color:#c9c9c9;
   font-size:18px;
+  color:#d0d0d0;
 }
 
-.footer-center span{
+.quote{
   color:#ffc928;
   font-size:23px;
 }
 
-.footer-time{
+#footer-time{
   text-align:right;
-  color:#bbb;
   font-size:20px;
+  color:#ccc;
 }
 
-/* SCALE TV */
+/* TV */
 
-@media(max-width:1400px){
+@media(max-height:800px){
   .dashboard{
-    transform-origin:top left;
+    padding-top:14px;
+    grid-template-rows:86px 1fr 48px;
+  }
+
+  .family{font-size:39px}
+  #time{font-size:56px}
+  #date{font-size:20px}
+
+  .event{
+    min-height:54px;
   }
 }
+
 </style>
 </head>
 
@@ -529,252 +528,319 @@ footer{
 <div class="dashboard">
 
 <header>
-  <div>
-    <div class="hello">Bonjour</div>
-    <div class="family-row">
-      <div class="family">Ducret Family</div>
-      <div class="family-sub">
-        <div class="people-icon">♧</div>
-        <div>Le tableau<br>de toute la famille</div>
-      </div>
+
+<div>
+  <div class="hello">Bonjour</div>
+
+  <div class="family-line">
+    <div class="family">Ducret Family</div>
+
+    <div class="family-info">
+      <div class="family-icon">♧</div>
+      <div>Le tableau<br>de toute la famille</div>
     </div>
   </div>
+</div>
 
-  <div class="clock">
-    <div id="time">--:--</div>
-    <div id="date">Chargement…</div>
-  </div>
+<div class="clock">
+  <div id="time">--:--</div>
+  <div id="date">Chargement…</div>
+</div>
+
 </header>
 
-<div class="top-grid">
 
-  <section class="panel left-today">
-    <div class="today-head">
-      <div class="panel-title">🗓 AUJOURD’HUI</div>
-      <button class="soft-button">VOIR LE CALENDRIER ❯</button>
+<div class="content">
+
+<!-- GAUCHE -->
+<div class="left-column">
+
+<section class="panel today">
+
+  <div class="today-header">
+    <div class="panel-title">🗓 AUJOURD’HUI</div>
+    <button class="soft-button">VOIR LE CALENDRIER ❯</button>
+  </div>
+
+  <div class="event" style="--c:#45a8ff">
+    <div class="event-time">08:30</div>
+    <div class="event-icon">⚽</div>
+    <div>
+      <div class="event-title">Noa – Entraînement football</div>
+      <div class="event-place">Stade Pierre de Coubertin</div>
     </div>
+    <div class="event-duration">1h30</div>
+  </div>
 
-    <div class="event" style="--event-color:#45a8ff">
-      <div class="event-time">08:30</div>
-      <div class="event-icon">⚽</div>
-      <div>
-        <div class="event-name">Noa – Entraînement football</div>
-        <div class="event-place">Stade Pierre de Coubertin</div>
-      </div>
-      <div class="event-duration">1h30</div>
+  <div class="event" style="--c:#7edb39">
+    <div class="event-time">10:00</div>
+    <div class="event-icon">🎓</div>
+    <div>
+      <div class="event-title">Jules – Travail d’été</div>
+      <div class="event-place">Maison</div>
     </div>
+    <div class="event-duration">2h00</div>
+  </div>
 
-    <div class="event" style="--event-color:#77df47">
-      <div class="event-time">10:00</div>
-      <div class="event-icon">🎓</div>
-      <div>
-        <div class="event-name">Jules – Travail d’été</div>
-        <div class="event-place">Maison</div>
-      </div>
-      <div class="event-duration">2h00</div>
+  <div class="event" style="--c:#ff941e">
+    <div class="event-time">14:00</div>
+    <div class="event-icon">💼</div>
+    <div>
+      <div class="event-title">Mélanie – Réunion H&M</div>
+      <div class="event-place">En visio</div>
     </div>
+    <div class="event-duration">1h00</div>
+  </div>
 
-    <div class="event" style="--event-color:#ff972e">
-      <div class="event-time">14:00</div>
-      <div class="event-icon">💼</div>
-      <div>
-        <div class="event-name">Mélanie – Réunion H&M</div>
-        <div class="event-place">En visio</div>
-      </div>
-      <div class="event-duration">1h00</div>
+  <div class="event" style="--c:#ffd322">
+    <div class="event-time">18:30</div>
+    <div class="event-icon">🏃</div>
+    <div>
+      <div class="event-title">Toi – Sortie running</div>
+      <div class="event-place">Séance endurance</div>
     </div>
+    <div class="event-duration">1h15</div>
+  </div>
 
-    <div class="event" style="--event-color:#ffd52e">
-      <div class="event-time">18:30</div>
-      <div class="event-icon">🏃</div>
-      <div>
-        <div class="event-name">Toi – Sortie running</div>
-        <div class="event-place">Séance endurance</div>
-      </div>
-      <div class="event-duration">1h15</div>
-    </div>
-
-    <div class="event" style="--event-color:#b879ff">
-      <div class="event-time">20:30</div>
-      <div class="event-icon">👨‍👩‍👦‍👦</div>
-      <div>
-        <div class="event-name">Soirée en famille</div>
-        <div class="event-place">Maison</div>
-      </div>
-      <div></div>
-    </div>
-  </section>
-
-  <div class="right-zone">
-
-    <section class="panel weather">
-      <div class="weather-now">
-        <div class="weather-big">
-          <div id="weather-icon" class="weather-main-icon">☀️</div>
-          <div id="temperature">--°</div>
-        </div>
-
-        <div class="weather-city">Cavaillon</div>
-        <div id="weather-desc" class="weather-desc">Chargement…</div>
-
-        <div class="weather-details">
-          <span id="max-temp">🌡 ↑ --°</span>
-          <span id="min-temp">↓ --°</span>
-          <span>💧 0%</span>
-        </div>
-      </div>
-
-      <div id="forecast" class="forecast"></div>
-    </section>
-
-    <div class="mid-right">
-
-      <section class="panel shopping">
-        <div class="panel-title">🛒 LISTE DE COURSES</div>
-
-        <div class="shopping-body">
-          <div class="shop-list">
-            <label class="shop-item"><input type="checkbox">Lait</label>
-            <label class="shop-item"><input type="checkbox">Fruits</label>
-            <label class="shop-item"><input type="checkbox">Pain complet</label>
-            <label class="shop-item"><input type="checkbox">Lessive</label>
-            <label class="shop-item"><input type="checkbox">Papier toilette</label>
-            <label class="shop-item"><input type="checkbox">Eau</label>
-          </div>
-
-          <div class="bag">🛍</div>
-        </div>
-      </section>
-
-      <section class="panel birthdays">
-        <div class="panel-title">🎂 ANNIVERSAIRES</div>
-
-        <div class="birthday-row">
-          <div>10 août</div>
-          <div>Mamie Chantal</div>
-          <div class="birthday-age">75 ans</div>
-        </div>
-
-        <div class="birthday-row">
-          <div>21 août</div>
-          <div>Noa</div>
-          <div class="birthday-age">14 ans</div>
-        </div>
-
-        <button class="soft-button">VOIR TOUS LES ANNIVERSAIRES ❯</button>
-      </section>
-
+  <div class="event" style="--c:#b66cff">
+    <div class="event-time">20:30</div>
+    <div class="event-icon">👨‍👩‍👦‍👦</div>
+    <div>
+      <div class="event-title">Soirée en famille</div>
+      <div class="event-place">Maison</div>
     </div>
   </div>
+
+</section>
+
+
+<section class="panel birthdays">
+
+  <div class="panel-title">🎂 ANNIVERSAIRES</div>
+
+  <div class="birthday">
+    <div>10 août</div>
+    <div>Mamie Chantal</div>
+    <div class="birthday-age">75 ans</div>
+  </div>
+
+  <div class="birthday">
+    <div>21 août</div>
+    <div>Noa</div>
+    <div class="birthday-age">14 ans</div>
+  </div>
+
+  <button class="soft-button">
+    VOIR TOUS LES ANNIVERSAIRES ❯
+  </button>
+
+</section>
+
+
+<section class="panel week">
+
+  <div class="week-header">
+    <div class="panel-title">🗓 CETTE SEMAINE</div>
+    <button class="soft-button">VOIR PLUS ❯</button>
+  </div>
+
+  <div class="week-days">
+
+    <div class="week-day">
+      <div class="day-name">MER.</div>
+      <div class="day-number today-number">5</div>
+      <div class="week-event blue">Foot Noa</div>
+      <div class="week-event">08:30</div>
+      <div class="week-event yellow">Running</div>
+      <div class="week-event">18:30</div>
+    </div>
+
+    <div class="week-day">
+      <div class="day-name">JEU.</div>
+      <div class="day-number">6</div>
+      <div class="week-event orange">Réunion</div>
+      <div class="week-event">09:00</div>
+      <div class="week-event green">Jules</div>
+      <div class="week-event">10:00</div>
+    </div>
+
+    <div class="week-day">
+      <div class="day-name">VEN.</div>
+      <div class="day-number">7</div>
+      <div class="week-event blue">Dentiste</div>
+      <div class="week-event">16:00</div>
+      <div class="week-event green">Courses</div>
+    </div>
+
+    <div class="week-day">
+      <div class="day-name">SAM.</div>
+      <div class="day-number">8</div>
+      <div class="week-event blue">Match Noa</div>
+      <div class="week-event">14:00</div>
+    </div>
+
+    <div class="week-day">
+      <div class="day-name">DIM.</div>
+      <div class="day-number">9</div>
+      <div class="week-event">Repos</div>
+      <div class="week-event green">☺</div>
+    </div>
+
+    <div class="week-day">
+      <div class="day-name">LUN.</div>
+      <div class="day-number">10</div>
+      <div class="week-event green">Jules</div>
+      <div class="week-event">10:00</div>
+      <div class="week-event orange">Réunion</div>
+      <div class="week-event">14:00</div>
+    </div>
+
+    <div class="week-day">
+      <div class="day-name">MAR.</div>
+      <div class="day-number">11</div>
+      <div class="week-event orange">Mélanie Aix</div>
+      <div class="week-event">09:30</div>
+    </div>
+
+  </div>
+
+</section>
+
 </div>
 
-<div class="bottom-grid">
 
-  <section class="panel week">
-    <div class="week-head">
-      <div class="panel-title">🗓 CETTE SEMAINE</div>
-      <button class="soft-button">VOIR PLUS ❯</button>
+<!-- DROITE -->
+<div class="right-column">
+
+<section class="panel weather">
+
+  <div class="weather-current">
+
+    <div class="weather-main">
+      <div id="weather-icon">☀️</div>
+      <div id="temperature">--°</div>
     </div>
 
-    <div class="week-days">
+    <div class="weather-place">Cavaillon</div>
+    <div id="weather-desc">Chargement…</div>
 
-      <div class="week-day">
-        <div class="week-name">MER.</div>
-        <div class="week-number today">5</div>
-        <div class="week-event blue">Foot Noa</div>
-        <div class="week-event">08:30</div>
-        <div class="week-event yellow">Running</div>
-        <div class="week-event">18:30</div>
-      </div>
+    <div class="weather-extra">
+      <span id="max-temp">🌡 ↑ --°</span>
+      <span id="min-temp">↓ --°</span>
+      <span>💧 0%</span>
+    </div>
 
-      <div class="week-day">
-        <div class="week-name">JEU.</div>
-        <div class="week-number">6</div>
-        <div class="week-event orange">Réunion</div>
-        <div class="week-event">09:00</div>
-        <div class="week-event green">Jules</div>
-        <div class="week-event">10:00</div>
-      </div>
+  </div>
 
-      <div class="week-day">
-        <div class="week-name">VEN.</div>
-        <div class="week-number">7</div>
-        <div class="week-event blue">Dentiste</div>
-        <div class="week-event">16:00</div>
-        <div class="week-event green">Courses</div>
-      </div>
+  <div class="forecast" id="forecast"></div>
 
-      <div class="week-day">
-        <div class="week-name">SAM.</div>
-        <div class="week-number">8</div>
-        <div class="week-event blue">Match Noa</div>
-        <div class="week-event">14:00</div>
-      </div>
+</section>
 
-      <div class="week-day">
-        <div class="week-name">DIM.</div>
-        <div class="week-number">9</div>
-        <div class="week-event">Repos</div>
-        <div class="week-event green" style="font-size:28px">☻</div>
-      </div>
 
-      <div class="week-day">
-        <div class="week-name">LUN.</div>
-        <div class="week-number">10</div>
-        <div class="week-event green">Jules</div>
-        <div class="week-event">10:00</div>
-        <div class="week-event orange">Réunion</div>
-        <div class="week-event">14:00</div>
-      </div>
+<div class="middle-right">
 
-      <div class="week-day">
-        <div class="week-name">MAR.</div>
-        <div class="week-number">11</div>
-        <div class="week-event orange">Mélanie Aix</div>
-        <div class="week-event">09:30</div>
-      </div>
+<!-- colonne vide volontairement supprimée :
+     la liste de courses prend désormais la grande zone -->
+<div></div>
+
+<section class="panel shopping">
+
+  <div class="panel-title">
+    🛒 LISTE DE COURSES
+  </div>
+
+  <div class="shopping-content">
+
+    <div class="shopping-list">
+
+      <div class="shop"><span class="checkbox"></span>Lait</div>
+      <div class="shop"><span class="checkbox"></span>Eau</div>
+
+      <div class="shop"><span class="checkbox"></span>Fruits</div>
+      <div class="shop"><span class="checkbox"></span>Légumes</div>
+
+      <div class="shop"><span class="checkbox"></span>Pain complet</div>
+      <div class="shop"><span class="checkbox"></span>Yaourts</div>
+
+      <div class="shop"><span class="checkbox"></span>Lessive</div>
+      <div class="shop"><span class="checkbox"></span>Café</div>
+
+      <div class="shop"><span class="checkbox"></span>Papier toilette</div>
+      <div class="shop"><span class="checkbox"></span>Œufs</div>
 
     </div>
-  </section>
 
-  <section class="panel reminders">
-    <div class="panel-title">📍 À RETENIR</div>
-    <div class="reminder">Anniversaire Mamie (10/08)</div>
-    <div class="reminder">Paiement crédit maison (15/08)</div>
-    <div class="reminder">Vacances été : 9 au 23 août</div>
-    <div class="reminder">RDV ostéo Noa (19/08)</div>
-  </section>
-
-  <section class="panel family-card">
-    <div class="family-message">
-      Profitez des<br>
-      petits bonheurs<br>
-      en famille<br>
-      ♡
+    <div class="shopping-bag">
+      🛍
     </div>
-  </section>
+
+  </div>
+
+</section>
 
 </div>
+
+
+<section class="panel reminders">
+
+  <div class="panel-title">
+    📍 À RETENIR
+  </div>
+
+  <div class="reminder-list">
+
+    <div class="reminder">
+      Anniversaire Mamie (10/08)
+    </div>
+
+    <div class="reminder">
+      Paiement crédit maison (15/08)
+    </div>
+
+    <div class="reminder">
+      Vacances été : 9 au 23 août
+    </div>
+
+    <div class="reminder">
+      RDV ostéo Noa (19/08)
+    </div>
+
+  </div>
+
+</section>
+
+</div>
+
+</div>
+
 
 <footer>
-  <div>♧ &nbsp; Dernière mise à jour : il y a 2 min</div>
 
-  <div class="footer-center">
-    <span>“</span>
-    &nbsp; L’organisation d’aujourd’hui fait la sérénité de demain. &nbsp;
-    <span>”</span>
-  </div>
+<div>
+  ♧ &nbsp; Dernière mise à jour : il y a 2 min
+</div>
 
-  <div class="footer-time" id="footer-time">☀  --:--</div>
+<div class="footer-center">
+  <span class="quote">“</span>
+  &nbsp; L’organisation d’aujourd’hui fait la sérénité de demain. &nbsp;
+  <span class="quote">”</span>
+</div>
+
+<div id="footer-time">
+  ☀ --:--
+</div>
+
 </footer>
 
 </div>
 
+
 <script>
 
-/* HEURE */
+/* HORLOGE */
 
 function updateClock(){
+
   const now=new Date();
 
   const time=now.toLocaleTimeString("fr-FR",{
@@ -795,7 +861,7 @@ function updateClock(){
     date.charAt(0).toUpperCase()+date.slice(1);
 
   document.getElementById("footer-time").textContent=
-    "☀  "+time;
+    "☀ "+time;
 }
 
 updateClock();
@@ -805,6 +871,7 @@ setInterval(updateClock,1000);
 /* METEO */
 
 function weatherInfo(code){
+
   if(code===0)return["☀️","Ensoleillé"];
   if(code===1)return["🌤️","Peu nuageux"];
   if(code===2)return["⛅","Partiellement nuageux"];
@@ -815,8 +882,10 @@ function weatherInfo(code){
   if(code>=71&&code<=77)return["🌨️","Neige"];
   if(code>=80&&code<=82)return["🌦️","Averses"];
   if(code>=95)return["⛈️","Orage"];
+
   return["🌤️","Variable"];
 }
+
 
 async function loadWeather(){
 
@@ -830,17 +899,20 @@ async function loadWeather(){
 
   try{
 
-    const r=await fetch(url);
-    const data=await r.json();
+    const response=await fetch(url);
+    const data=await response.json();
 
-    const current=weatherInfo(data.current.weather_code);
+    const current=
+      weatherInfo(data.current.weather_code);
 
-    document.getElementById("weather-icon").textContent=current[0];
+    document.getElementById("weather-icon").textContent=
+      current[0];
 
     document.getElementById("temperature").textContent=
       Math.round(data.current.temperature_2m)+"°";
 
-    document.getElementById("weather-desc").textContent=current[1];
+    document.getElementById("weather-desc").textContent=
+      current[1];
 
     document.getElementById("max-temp").textContent=
       "🌡 ↑ "+Math.round(data.daily.temperature_2m_max[0])+"°";
@@ -848,41 +920,65 @@ async function loadWeather(){
     document.getElementById("min-temp").textContent=
       "↓ "+Math.round(data.daily.temperature_2m_min[0])+"°";
 
-    const forecast=document.getElementById("forecast");
+
+    const forecast=
+      document.getElementById("forecast");
+
     forecast.innerHTML="";
+
 
     for(let i=1;i<=5;i++){
 
-      const date=new Date(data.daily.time[i]+"T12:00:00");
+      const d=
+        new Date(data.daily.time[i]+"T12:00:00");
 
-      const name=date
-        .toLocaleDateString("fr-FR",{weekday:"short"})
+      const name=
+        d.toLocaleDateString(
+          "fr-FR",
+          {weekday:"short"}
+        )
         .replace(".","")
         .toUpperCase();
 
-      const info=weatherInfo(data.daily.weather_code[i]);
+      const info=
+        weatherInfo(
+          data.daily.weather_code[i]
+        );
 
-      const col=document.createElement("div");
-      col.className="forecast-day";
+      const day=
+        document.createElement("div");
 
-      col.innerHTML=`
-        <div class="f-day">${name}</div>
-        <div class="f-icon">${info[0]}</div>
-        <div class="f-max">${Math.round(data.daily.temperature_2m_max[i])}°</div>
-        <div class="f-min">${Math.round(data.daily.temperature_2m_min[i])}°</div>
+      day.className=
+        "forecast-day";
+
+      day.innerHTML=`
+        <div class="forecast-name">${name}</div>
+        <div class="forecast-icon">${info[0]}</div>
+        <div class="forecast-max">
+          ${Math.round(data.daily.temperature_2m_max[i])}°
+        </div>
+        <div class="forecast-min">
+          ${Math.round(data.daily.temperature_2m_min[i])}°
+        </div>
       `;
 
-      forecast.appendChild(col);
+      forecast.appendChild(day);
     }
 
-  }catch(e){
+  }catch(error){
+
     document.getElementById("weather-desc").textContent=
       "Météo indisponible";
+
   }
 }
 
 loadWeather();
-setInterval(loadWeather,15*60*1000);
+
+setInterval(
+  loadWeather,
+  15*60*1000
+);
 
 </script>
 
