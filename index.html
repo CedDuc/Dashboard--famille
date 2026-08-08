@@ -3,122 +3,80 @@
 
 <head>
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ducret Family</title>
 
-
 <style>
 
-/* =========================================================
-   COULEURS
-   ========================================================= */
+:root{
+  --panel:rgba(3,15,20,.91);
+  --panel2:rgba(5,17,22,.87);
+  --border:rgba(255,255,255,.24);
 
-:root {
+  --white:#f5f5f5;
+  --muted:#b7bec3;
 
-  --panel: rgba(4,15,20,.88);
-  --border: rgba(255,255,255,.26);
-
-  --text: #f5f5f5;
-  --muted: #b8b8b8;
-
-  --blue: #39a5ff;
-  --green: #75dc35;
-  --orange: #ff8d16;
-  --yellow: #ffd51d;
-  --purple: #bb65ff;
-  --pink: #f47da2;
-
+  --blue:#37a9ff;
+  --green:#7be334;
+  --orange:#ff9418;
+  --yellow:#ffd31a;
+  --purple:#c167ff;
+  --pink:#ff7ca5;
 }
 
-
-/* =========================================================
-   BASE
-   ========================================================= */
-
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
 html,
-body {
-
-  margin: 0;
-  padding: 0;
-
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-
+body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
 }
 
-body {
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  color: var(--text);
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--white);
 
   background:
     linear-gradient(
-      rgba(3,10,14,.25),
-      rgba(3,10,14,.48)
+      rgba(2,8,12,.18),
+      rgba(2,8,12,.40)
     ),
-    url(
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=90"
-    );
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=90");
 
-  background-size: cover;
-  background-position: center;
-
+  background-size:cover;
+  background-position:center;
 }
 
 
 /* =========================================================
-   STRUCTURE GENERALE
-   ========================================================= */
+   STRUCTURE
+========================================================= */
 
-.dashboard {
+.dashboard{
+  width:100vw;
+  height:100vh;
 
-  width: 100vw;
-  height: 100vh;
+  padding:18px 24px 14px;
 
-  padding: 18px 24px 14px;
-
-  display: grid;
+  display:grid;
 
   grid-template-rows:
     92px
-    1fr
+    minmax(0,1fr)
     55px;
 
-  gap: 14px;
-
+  gap:14px;
 }
 
+.content{
+  min-height:0;
 
-/*
-
-Disposition :
-
-AUJOURD'HUI | METEO METEO
-AUJOURD'HUI | ANNIV | COURSES
-SEMAINE     | RETENIR | COURSES
-
-*/
-
-.content {
-
-  min-height: 0;
-
-  display: grid;
+  display:grid;
 
   grid-template-columns:
     43% 22% 35%;
@@ -126,1583 +84,913 @@ SEMAINE     | RETENIR | COURSES
   grid-template-rows:
     34% 31% 35%;
 
-  gap: 14px;
-
   grid-template-areas:
-
     "today weather weather"
-
     "today birthdays shopping"
-
     "week reminders shopping";
 
+  gap:14px;
 }
 
 
 /* =========================================================
    PANNEAUX
-   ========================================================= */
+========================================================= */
 
-.panel {
+.panel{
+  min-width:0;
+  min-height:0;
 
   background:
     linear-gradient(
       145deg,
-      rgba(3,15,20,.94),
-      rgba(5,16,21,.83)
+      var(--panel),
+      var(--panel2)
     );
 
-  border:
-    1px solid var(--border);
-
-  border-radius: 15px;
+  border:1px solid var(--border);
+  border-radius:15px;
 
   box-shadow:
-    0 8px 28px rgba(0,0,0,.30);
+    0 8px 28px rgba(0,0,0,.34);
 
-  backdrop-filter:
-    blur(8px);
+  backdrop-filter:blur(8px);
 
-  overflow: hidden;
-
+  overflow:hidden;
 }
 
+.panel-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
 
-.panel-title {
+  font-size:18px;
+  font-weight:700;
 
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  font-weight: 700;
-
-  font-size: 18px;
-
-  letter-spacing: .4px;
-
-  text-transform: uppercase;
-
+  letter-spacing:.4px;
+  text-transform:uppercase;
 }
 
+.soft-button{
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:22px;
 
-.soft-button {
+  padding:8px 15px;
 
-  border:
-    1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.055);
 
-  border-radius: 22px;
+  color:white;
 
-  padding:
-    8px 16px;
-
-  background:
-    rgba(255,255,255,.055);
-
-  color: white;
-
-  font-size: 11px;
-
+  font-size:11px;
+  font-weight:600;
 }
 
 
 /* =========================================================
    HEADER
-   ========================================================= */
+========================================================= */
 
-header {
-
-  display: flex;
-
-  justify-content:
-    space-between;
-
-  align-items:
-    flex-start;
-
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
 }
 
-
-.hello {
-
-  font-family:
-    cursive;
-
-  font-size:
-    29px;
-
-  line-height:
-    1;
-
-  color:
-    #ffc928;
-
+.hello{
+  font-family:cursive;
+  font-size:29px;
+  line-height:1;
+  color:#ffc82c;
 }
 
-
-.family-row {
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  margin-top:
-    3px;
-
+.family-row{
+  display:flex;
+  align-items:center;
+  margin-top:3px;
 }
 
-
-.family {
-
-  font-size:
-    44px;
-
-  font-weight:
-    300;
-
+.family{
+  font-size:44px;
+  font-weight:300;
 }
 
+.family-sub{
+  margin-left:20px;
+  padding-left:20px;
 
-.family-sub {
+  border-left:1px solid rgba(255,255,255,.4);
 
-  margin-left:
-    20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
 
-  padding-left:
-    20px;
-
-  border-left:
-    1px solid rgba(255,255,255,.4);
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    12px;
-
-  font-size:
-    17px;
-
-  line-height:
-    1.2;
-
+  font-size:17px;
+  line-height:1.2;
 }
 
-
-.family-icon {
-
-  font-size:
-    31px;
-
+.family-icon{
+  font-size:31px;
 }
 
-
-.clock {
-
-  text-align:
-    right;
-
+.clock{
+  text-align:right;
 }
 
-
-#time {
-
-  font-size:
-    61px;
-
-  font-weight:
-    300;
-
-  line-height:
-    .95;
-
+#time{
+  font-size:61px;
+  font-weight:300;
+  line-height:.95;
 }
 
-
-#date {
-
-  margin-top:
-    7px;
-
-  font-size:
-    22px;
-
-  color:
-    #eee;
-
+#date{
+  margin-top:7px;
+  font-size:21px;
 }
 
 
 /* =========================================================
    AUJOURD'HUI
-   ========================================================= */
+========================================================= */
 
-.today {
-
-  grid-area:
-    today;
-
-  padding:
-    16px 20px;
-
+.today{
+  grid-area:today;
+  padding:16px 20px;
 }
 
+.today-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 
-.today-head {
-
-  display:
-    flex;
-
-  justify-content:
-    space-between;
-
-  align-items:
-    center;
-
-  padding-bottom:
-    11px;
+  padding-bottom:11px;
 
   border-bottom:
     1px solid rgba(255,255,255,.13);
-
 }
 
-
-.today .panel-title {
-
-  color:
-    var(--purple);
-
+.today .panel-title{
+  color:var(--purple);
 }
 
-
-#today-events {
-
-  width:
-    100%;
-
+#today-events{
+  width:100%;
 }
 
+.event{
+  --event-color:var(--blue);
 
-.event {
+  position:relative;
 
-  position:
-    relative;
+  min-height:60px;
 
-  min-height:
-    60px;
-
-  display:
-    grid;
+  display:grid;
 
   grid-template-columns:
     76px
     48px
-    1fr
-    55px;
+    minmax(0,1fr)
+    58px;
 
-  align-items:
-    center;
+  align-items:center;
 
-  padding-left:
-    10px;
+  padding-left:10px;
 
   border-bottom:
     1px solid rgba(255,255,255,.12);
-
 }
 
-
-.event:last-child {
-
-  border-bottom:
-    0;
-
+.event:last-child{
+  border-bottom:0;
 }
 
+.event::before{
+  content:"";
 
-.event::before {
+  position:absolute;
 
-  content:
-    "";
+  left:0;
+  top:8px;
+  bottom:8px;
 
-  position:
-    absolute;
+  width:3px;
 
-  left:
-    0;
-
-  top:
-    8px;
-
-  bottom:
-    8px;
-
-  width:
-    3px;
-
-  background:
-    var(--event-color);
-
+  background:var(--event-color);
 }
 
-
-.event-time {
-
-  color:
-    var(--event-color);
-
-  font-size:
-    19px;
-
+.event-time{
+  color:var(--event-color);
+  font-size:19px;
 }
 
-
-.event-icon {
-
-  font-size:
-    27px;
-
-  text-align:
-    center;
-
+.event-icon{
+  text-align:center;
+  font-size:27px;
 }
 
+.event-name{
+  font-size:18px;
 
-.event-name {
-
-  font-size:
-    18px;
-
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
+.event-place{
+  margin-top:3px;
 
-.event-place {
+  color:var(--muted);
+  font-size:13px;
 
-  margin-top:
-    3px;
-
-  font-size:
-    14px;
-
-  color:
-    var(--muted);
-
-  white-space:
-    nowrap;
-
-  overflow:
-    hidden;
-
-  text-overflow:
-    ellipsis;
-
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
+.event-duration{
+  text-align:right;
 
-.event-duration {
+  color:var(--event-color);
 
-  text-align:
-    right;
-
-  color:
-    var(--event-color);
-
-  font-size:
-    15px;
-
+  font-size:14px;
 }
 
-
-.no-event {
-
-  padding:
-    30px 8px;
-
-  font-size:
-    16px;
-
-  color:
-    #aaa;
-
+.no-event{
+  padding:30px 8px;
+  color:#aeb4b8;
+  font-size:16px;
 }
 
 
 /* =========================================================
    METEO
-   ========================================================= */
+========================================================= */
 
-.weather {
+.weather{
+  grid-area:weather;
 
-  grid-area:
-    weather;
+  padding:15px 22px;
 
-  padding:
-    15px 22px;
-
-  display:
-    grid;
+  display:grid;
 
   grid-template-columns:
-    240px 1fr;
-
+    240px
+    minmax(0,1fr);
 }
 
-
-.weather-current {
+.weather-current{
+  padding-right:20px;
 
   border-right:
     1px solid rgba(255,255,255,.13);
-
-  padding-right:
-    20px;
-
 }
 
-
-.weather-main {
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    14px;
-
+.weather-main{
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
 
-
-#weather-icon {
-
-  font-size:
-    56px;
-
+#weather-icon{
+  font-size:55px;
 }
 
-
-#temperature {
-
-  font-size:
-    64px;
-
-  font-weight:
-    300;
-
+#temperature{
+  font-size:62px;
+  font-weight:300;
 }
 
-
-.weather-city {
-
-  margin-top:
-    2px;
-
-  font-size:
-    21px;
-
+.weather-city{
+  margin-top:2px;
+  font-size:21px;
+  font-weight:600;
 }
 
-
-#weather-description {
-
-  margin-top:
-    4px;
-
-  font-size:
-    16px;
-
+#weather-description{
+  margin-top:4px;
+  font-size:16px;
 }
 
+.weather-extra{
+  margin-top:13px;
 
-.weather-extra {
+  display:flex;
+  gap:13px;
 
-  margin-top:
-    13px;
-
-  display:
-    flex;
-
-  gap:
-    13px;
-
-  font-size:
-    15px;
-
+  font-size:14px;
 }
 
-
-.forecast {
-
-  display:
-    grid;
+.forecast{
+  display:grid;
 
   grid-template-columns:
     repeat(5,1fr);
 
-  align-items:
-    center;
-
+  align-items:center;
 }
 
-
-.forecast-day {
-
-  text-align:
-    center;
+.forecast-day{
+  text-align:center;
 
   border-right:
     1px solid rgba(255,255,255,.11);
-
 }
 
-
-.forecast-day:last-child {
-
-  border-right:
-    0;
-
+.forecast-day:last-child{
+  border-right:0;
 }
 
-
-.forecast-name {
-
-  font-size:
-    14px;
-
-  font-weight:
-    bold;
-
+.forecast-name{
+  font-size:13px;
+  font-weight:bold;
 }
 
-
-.forecast-icon {
-
-  margin:
-    12px 0;
-
-  font-size:
-    28px;
-
+.forecast-icon{
+  margin:11px 0;
+  font-size:28px;
 }
 
-
-.forecast-max {
-
-  font-size:
-    19px;
-
+.forecast-max{
+  font-size:18px;
 }
 
-
-.forecast-min {
-
-  margin-top:
-    5px;
-
-  font-size:
-    16px;
-
-  color:
-    #ccc;
-
+.forecast-min{
+  margin-top:5px;
+  color:#ccc;
+  font-size:15px;
 }
 
 
 /* =========================================================
    ANNIVERSAIRES
-   ========================================================= */
+========================================================= */
 
-.birthdays {
-
-  grid-area:
-    birthdays;
-
-  padding:
-    16px 19px;
-
+.birthdays{
+  grid-area:birthdays;
+  padding:16px 19px;
 }
 
-
-.birthdays .panel-title {
-
-  color:
-    var(--pink);
-
+.birthdays .panel-title{
+  color:var(--pink);
 }
 
+#birthdays-list{
+  margin-top:9px;
+}
 
-.birthday {
+.birthday{
+  min-height:48px;
 
-  display:
-    grid;
+  display:grid;
 
   grid-template-columns:
-    75px
-    1fr
-    60px;
+    78px
+    minmax(0,1fr);
 
-  padding:
-    14px 0;
+  align-items:center;
+
+  padding:8px 0;
 
   border-bottom:
     1px solid rgba(255,255,255,.13);
 
-  font-size:
-    15px;
-
+  font-size:15px;
 }
 
-
-.birthday-age {
-
-  text-align:
-    right;
-
-  color:
-    var(--pink);
-
+.birthday-date{
+  color:#eee;
 }
 
+.birthday-name{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
 
-.birthdays .soft-button {
+.birthdays .soft-button{
+  width:100%;
+  margin-top:10px;
+}
 
-  width:
-    100%;
-
-  margin-top:
-    12px;
-
+.empty-small{
+  margin-top:25px;
+  color:#9ca4a8;
+  font-size:14px;
 }
 
 
 /* =========================================================
-   LISTE DE COURSES
-   ========================================================= */
+   COURSES
+========================================================= */
 
-.shopping {
+.shopping{
+  grid-area:shopping;
 
-  grid-area:
-    shopping;
-
-  padding:
-    17px 22px;
-
+  padding:17px 22px;
 }
 
-
-.shopping .panel-title {
-
-  color:
-    var(--green);
-
+.shopping .panel-title{
+  color:var(--green);
 }
 
+.shopping-body{
+  position:relative;
 
-.shopping-body {
+  height:calc(100% - 35px);
 
-  position:
-    relative;
-
-  height:
-    calc(100% - 35px);
-
-  margin-top:
-    15px;
-
+  margin-top:15px;
 }
 
+#shopping-list{
+  width:64%;
 
-.shopping-list {
+  display:flex;
+  flex-direction:column;
 
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  gap:
-    12px;
-
-  width:
-    60%;
-
+  gap:11px;
 }
 
+.shop-item{
+  display:flex;
+  align-items:center;
 
-.shop-item {
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  font-size:
-    17px;
-
+  font-size:16px;
 }
 
+.check{
+  flex:none;
 
-.check {
+  width:18px;
+  height:18px;
 
-  width:
-    19px;
+  margin-right:11px;
 
-  height:
-    19px;
-
-  border:
-    2px solid #ccc;
-
-  border-radius:
-    3px;
-
-  margin-right:
-    12px;
-
+  border:2px solid #d8d8d8;
+  border-radius:3px;
 }
 
+.shopping-bag{
+  position:absolute;
 
-.shopping-bag {
+  right:15px;
+  bottom:9px;
 
-  position:
-    absolute;
+  color:var(--green);
+  font-size:112px;
+}
 
-  right:
-    15px;
-
-  bottom:
-    10px;
-
-  font-size:
-    115px;
-
-  color:
-    var(--green);
-
+.shopping-empty{
+  color:#999;
+  font-size:15px;
 }
 
 
 /* =========================================================
    CETTE SEMAINE
-   ========================================================= */
+========================================================= */
 
-.week {
+.week{
+  grid-area:week;
 
-  grid-area:
-    week;
-
-  padding:
-    14px 20px;
-
+  padding:14px 20px;
 }
 
-
-.week-header {
-
-  display:
-    flex;
-
-  justify-content:
-    space-between;
-
-  align-items:
-    center;
-
+.week-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-
-.week .panel-title {
-
-  color:
-    var(--blue);
-
+.week .panel-title{
+  color:var(--blue);
 }
 
+.week-days{
+  margin-top:13px;
 
-.week-days {
-
-  margin-top:
-    13px;
-
-  display:
-    grid;
+  display:grid;
 
   grid-template-columns:
-    repeat(7,1fr);
-
+    repeat(7,minmax(0,1fr));
 }
 
+.week-day{
+  min-width:0;
 
-.week-day {
-
-  min-width:
-    0;
-
-  padding:
-    0 9px;
+  padding:0 9px;
 
   border-right:
     1px solid rgba(255,255,255,.12);
-
 }
 
-
-.week-day:last-child {
-
-  border-right:
-    0;
-
+.week-day:last-child{
+  border-right:0;
 }
 
-
-.day-name {
-
-  font-size:
-    13px;
-
-  font-weight:
-    bold;
-
+.day-name{
+  font-size:12px;
+  font-weight:bold;
 }
 
+.day-number{
+  margin:4px 0 7px;
 
-.day-number {
-
-  margin:
-    4px 0 7px;
-
-  font-size:
-    23px;
-
+  font-size:23px;
 }
 
+.today-number{
+  width:34px;
+  height:34px;
 
-.today-number {
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-  display:
-    flex;
+  border-radius:50%;
 
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  width:
-    34px;
-
-  height:
-    34px;
-
-  border-radius:
-    50%;
-
-  background:
-    #337bea;
-
+  background:#337bea;
 }
 
+.week-event{
+  margin-top:4px;
 
-.week-event {
+  font-size:12px;
 
-  margin-top:
-    5px;
+  line-height:1.18;
 
-  font-size:
-    13px;
-
-  white-space:
-    nowrap;
-
-  overflow:
-    hidden;
-
-  text-overflow:
-    ellipsis;
-
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
+.week-time{
+  margin-bottom:4px;
 
-.blue {
-  color: var(--blue);
-}
+  color:#ddd;
 
-.green {
-  color: var(--green);
-}
-
-.orange {
-  color: var(--orange);
-}
-
-.yellow {
-  color: var(--yellow);
+  font-size:11px;
 }
 
 
 /* =========================================================
    A RETENIR
-   ========================================================= */
+========================================================= */
 
-.reminders {
+.reminders{
+  grid-area:reminders;
 
-  grid-area:
-    reminders;
-
-  padding:
-    15px 18px;
-
+  padding:15px 18px;
 }
 
-
-.reminders .panel-title {
-
-  color:
-    var(--blue);
-
+.reminders .panel-title{
+  color:var(--blue);
 }
 
-
-.reminder {
-
-  margin-top:
-    13px;
-
-  font-size:
-    14px;
-
-  line-height:
-    1.3;
-
+#important-list{
+  margin-top:5px;
 }
 
+.reminder{
+  margin-top:13px;
 
-.reminder::before {
+  font-size:14px;
+  line-height:1.3;
+}
 
-  content:
-    "•";
+.reminder::before{
+  content:"•";
 
-  margin-right:
-    8px;
+  margin-right:8px;
 
-  color:
-    var(--blue);
+  color:var(--blue);
+}
 
+.reminder-date{
+  color:#aaa;
 }
 
 
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
-footer {
+footer{
+  height:55px;
 
-  height:
-    55px;
-
-  display:
-    grid;
+  display:grid;
 
   grid-template-columns:
-    290px
-    1fr
+    300px
+    minmax(0,1fr)
     120px;
 
-  align-items:
-    center;
+  align-items:center;
 
-  padding:
-    0 17px;
+  padding:0 17px;
 
   background:
-    rgba(5,13,17,.82);
+    rgba(5,13,17,.84);
 
   border:
     1px solid rgba(255,255,255,.14);
 
-  border-radius:
-    14px;
+  border-radius:14px;
 
-  font-size:
-    15px;
-
+  font-size:14px;
 }
 
+.footer-center{
+  text-align:center;
 
-.footer-center {
+  color:#ccc;
 
-  text-align:
-    center;
-
-  color:
-    #ccc;
-
-  font-size:
-    17px;
-
+  font-size:16px;
 }
 
-
-.quote {
-
-  color:
-    #ffc928;
-
-  font-size:
-    23px;
-
+.quote{
+  color:#ffc928;
+  font-size:23px;
 }
 
+#footer-time{
+  text-align:right;
 
-#footer-time {
+  color:#ccc;
 
-  text-align:
-    right;
-
-  font-size:
-    19px;
-
-  color:
-    #ccc;
-
+  font-size:18px;
 }
 
 
 /* =========================================================
-   AJUSTEMENT ECRAN TV
-   ========================================================= */
+   AJUSTEMENT TV
+========================================================= */
 
-@media(max-height:850px) {
+@media(max-height:850px){
 
-  .dashboard {
-
+  .dashboard{
     grid-template-rows:
       82px
       1fr
       48px;
-
   }
 
-  .family {
-
-    font-size:
-      38px;
-
+  .family{
+    font-size:38px;
   }
 
-  #time {
-
-    font-size:
-      53px;
-
+  #time{
+    font-size:53px;
   }
 
-  #date {
-
-    font-size:
-      18px;
-
+  #date{
+    font-size:18px;
   }
 
-  .event {
-
-    min-height:
-      51px;
-
+  .event{
+    min-height:51px;
   }
 
-}
-
-
-/* =========================================================
-   CADRAGE FINAL TV
-   ========================================================= */
-
-html,
-body {
-
-  width:
-    100%;
-
-  height:
-    100%;
-
-  margin:
-    0;
-
-  padding:
-    0;
-
-  overflow:
-    hidden;
-
-}
-
-
-body {
-
-  min-height:
-    100vh;
-
-}
-
-
-.dashboard {
-
-  width:
-    103.1vw;
-
-  height:
-    103.1vh;
-
-  max-width:
-    none;
-
-  margin:
-    0;
-
-  padding:
-    12px 22px;
-
-  overflow:
-    hidden;
-
-  transform:
-    scale(.97);
-
-  transform-origin:
-    top left;
+  .shopping-bag{
+    font-size:95px;
+  }
 
 }
 
 </style>
-
 </head>
-
 
 
 <body>
 
-
 <div class="dashboard">
 
 
-<!-- =====================================================
-     HEADER
-     ===================================================== -->
+<!-- HEADER -->
 
 <header>
 
+  <div>
 
-<div>
+    <div class="hello">
+      Bonjour
+    </div>
 
+    <div class="family-row">
 
-<div class="hello">
-Bonjour
-</div>
+      <div class="family">
+        Ducret Family
+      </div>
 
+      <div class="family-sub">
 
-<div class="family-row">
+        <div class="family-icon">
+          👥
+        </div>
 
+        <div>
+          Le tableau<br>
+          de toute la famille
+        </div>
 
-<div class="family">
-Ducret Family
-</div>
+      </div>
 
+    </div>
 
-<div class="family-sub">
-
-
-<div class="family-icon">
-♧
-</div>
-
-
-<div>
-Le tableau<br>
-de toute la famille
-</div>
-
-
-</div>
+  </div>
 
 
-</div>
+  <div class="clock">
 
+    <div id="time">
+      --:--
+    </div>
 
-</div>
+    <div id="date">
+      Chargement…
+    </div>
 
-
-
-<div class="clock">
-
-
-<div id="time">
---:--
-</div>
-
-
-<div id="date">
-Chargement…
-</div>
-
-
-</div>
-
+  </div>
 
 </header>
 
 
 
-<!-- =====================================================
-     CONTENU
-     ===================================================== -->
-
 <div class="content">
 
 
-
-<!-- =====================================================
-     AUJOURD'HUI
-     ===================================================== -->
+<!-- AUJOURD'HUI -->
 
 <section class="panel today">
 
+  <div class="today-head">
 
-<div class="today-head">
+    <div class="panel-title">
+      🗓 AUJOURD’HUI
+    </div>
 
+    <button class="soft-button">
+      VOIR LE CALENDRIER ❯
+    </button>
 
-<div class="panel-title">
-🗓 AUJOURD’HUI
-</div>
+  </div>
 
+  <div id="today-events">
 
-<button class="soft-button">
-VOIR LE CALENDRIER ❯
-</button>
+    <div class="no-event">
+      Chargement du calendrier…
+    </div>
 
-
-</div>
-
-
-<div id="today-events">
-
-
-<div class="no-event">
-Chargement du calendrier…
-</div>
-
-
-</div>
-
+  </div>
 
 </section>
 
 
 
-<!-- =====================================================
-     METEO
-     ===================================================== -->
+<!-- METEO -->
 
 <section class="panel weather">
 
+  <div class="weather-current">
 
-<div class="weather-current">
+    <div class="weather-main">
 
+      <div id="weather-icon">
+        ☀️
+      </div>
 
-<div class="weather-main">
+      <div id="temperature">
+        --°
+      </div>
 
+    </div>
 
-<div id="weather-icon">
-☀️
-</div>
+    <div class="weather-city">
+      Cavaillon
+    </div>
 
+    <div id="weather-description">
+      Chargement…
+    </div>
 
-<div id="temperature">
---°
-</div>
+    <div class="weather-extra">
 
+      <span id="weather-max">
+        🌡 ↑ --°
+      </span>
 
-</div>
+      <span id="weather-min">
+        ↓ --°
+      </span>
 
+      <span>
+        💧 0%
+      </span>
 
-<div class="weather-city">
-Cavaillon
-</div>
+    </div>
 
-
-<div id="weather-description">
-Chargement…
-</div>
-
-
-<div class="weather-extra">
-
-
-<span id="weather-max">
-🌡 ↑ --°
-</span>
-
-
-<span id="weather-min">
-↓ --°
-</span>
+  </div>
 
 
-<span>
-💧 0%
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-<div
-  class="forecast"
-  id="forecast">
-</div>
-
+  <div
+    class="forecast"
+    id="forecast">
+  </div>
 
 </section>
 
 
 
-<!-- =====================================================
-     ANNIVERSAIRES
-     ===================================================== -->
+<!-- ANNIVERSAIRES -->
 
 <section class="panel birthdays">
 
+  <div class="panel-title">
+    🎂 ANNIVERSAIRES
+  </div>
 
-<div class="panel-title">
-🎂 ANNIVERSAIRES
-</div>
+  <div id="birthdays-list">
 
+    <div class="empty-small">
+      Aucun anniversaire à venir
+    </div>
 
-<div class="birthday">
+  </div>
 
-
-<div>
-10 août
-</div>
-
-
-<div>
-Mamie Chantal
-</div>
-
-
-<div class="birthday-age">
-75 ans
-</div>
-
-
-</div>
-
-
-
-<div class="birthday">
-
-
-<div>
-21 août
-</div>
-
-
-<div>
-Noa
-</div>
-
-
-<div class="birthday-age">
-14 ans
-</div>
-
-
-</div>
-
-
-
-<button class="soft-button">
-VOIR TOUS LES ANNIVERSAIRES ❯
-</button>
-
+  <button class="soft-button">
+    VOIR TOUS LES ANNIVERSAIRES ❯
+  </button>
 
 </section>
 
 
 
-<!-- =====================================================
-     LISTE DE COURSES
-     ===================================================== -->
+<!-- COURSES -->
 
 <section class="panel shopping">
 
+  <div class="panel-title">
+    🛒 LISTE DE COURSES
+  </div>
 
-<div class="panel-title">
-🛒 LISTE DE COURSES
-</div>
+  <div class="shopping-body">
 
+    <div id="shopping-list">
 
-<div class="shopping-body">
+      <div class="shopping-empty">
+        Chargement…
+      </div>
 
+    </div>
 
-<div class="shopping-list">
+    <div class="shopping-bag">
+      🛍
+    </div>
 
-
-<div class="shop-item">
-<span class="check"></span>
-Lait
-</div>
-
-
-<div class="shop-item">
-<span class="check"></span>
-Fruits
-</div>
-
-
-<div class="shop-item">
-<span class="check"></span>
-Pain complet
-</div>
-
-
-<div class="shop-item">
-<span class="check"></span>
-Lessive
-</div>
-
-
-<div class="shop-item">
-<span class="check"></span>
-Papier toilette
-</div>
-
-
-<div class="shop-item">
-<span class="check"></span>
-Eau
-</div>
-
-
-<div class="shop-item">
-<span class="check"></span>
-Légumes
-</div>
-
-
-<div class="shop-item">
-<span class="check"></span>
-Yaourts
-</div>
-
-
-<div class="shop-item">
-<span class="check"></span>
-Café
-</div>
-
-
-<div class="shop-item">
-<span class="check"></span>
-Œufs
-</div>
-
-
-</div>
-
-
-
-<div class="shopping-bag">
-🛍
-</div>
-
-
-</div>
-
+  </div>
 
 </section>
 
 
 
-<!-- =====================================================
-     CETTE SEMAINE
-     ===================================================== -->
+<!-- CETTE SEMAINE -->
 
 <section class="panel week">
 
+  <div class="week-header">
 
-<div class="week-header">
+    <div class="panel-title">
+      🗓 CETTE SEMAINE
+    </div>
 
+    <button class="soft-button">
+      VOIR PLUS
+    </button>
 
-<div class="panel-title">
-🗓 CETTE SEMAINE
-</div>
+  </div>
 
-
-<button class="soft-button">
-VOIR PLUS
-</button>
-
-
-</div>
-
-
-<div
-  class="week-days"
-  id="week-days">
-
-</div>
-
+  <div
+    class="week-days"
+    id="week-days">
+  </div>
 
 </section>
 
 
 
-<!-- =====================================================
-     A RETENIR
-     ===================================================== -->
+<!-- A RETENIR -->
 
 <section class="panel reminders">
 
+  <div class="panel-title">
+    📍 À RETENIR
+  </div>
 
-<div class="panel-title">
-📍 À RETENIR
-</div>
+  <div id="important-list">
 
+    <div class="empty-small">
+      Rien de particulier cette semaine
+    </div>
 
-<div class="reminder">
-Anniversaire Mamie (10/08)
-</div>
-
-
-<div class="reminder">
-Paiement crédit maison (15/08)
-</div>
-
-
-<div class="reminder">
-Vacances été : 9 au 23 août
-</div>
-
-
-<div class="reminder">
-RDV ostéo Noa (19/08)
-</div>
-
+  </div>
 
 </section>
 
@@ -1711,43 +999,33 @@ RDV ostéo Noa (19/08)
 
 
 
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
+  <div id="last-update">
+    👥 &nbsp; Dernière mise à jour : —
+  </div>
 
-<div id="last-update">
-♧ &nbsp; Dernière mise à jour : —
-</div>
+  <div class="footer-center">
 
+    <span class="quote">
+      “
+    </span>
 
-<div class="footer-center">
+    &nbsp;
+    L’organisation d’aujourd’hui fait la sérénité de demain.
+    &nbsp;
 
+    <span class="quote">
+      ”
+    </span>
 
-<span class="quote">
-“
-</span>
+  </div>
 
-
-&nbsp;
-L’organisation d’aujourd’hui fait la sérénité de demain.
-&nbsp;
-
-
-<span class="quote">
-”
-</span>
-
-
-</div>
-
-
-<div id="footer-time">
-☀ --:--
-</div>
-
+  <div id="footer-time">
+    ☀ --:--
+  </div>
 
 </footer>
 
@@ -1760,65 +1038,214 @@ L’organisation d’aujourd’hui fait la sérénité de demain.
 
 
 /* =========================================================
-   HORLOGE
-   ========================================================= */
+   OUTILS
+========================================================= */
 
-function updateClock() {
+function escapeHtml(text){
 
-  const now =
-    new Date();
-
-
-  const time =
-    now.toLocaleTimeString(
-      "fr-FR",
-      {
-        hour: "2-digit",
-        minute: "2-digit"
-      }
-    );
-
-
-  let date =
-    now.toLocaleDateString(
-      "fr-FR",
-      {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-      }
-    );
-
-
-  date =
-    date.charAt(0).toUpperCase()
-    +
-    date.slice(1);
-
-
-  document
-    .getElementById("time")
-    .textContent =
-    time;
-
-
-  document
-    .getElementById("date")
-    .textContent =
-    date;
-
-
-  document
-    .getElementById("footer-time")
-    .textContent =
-    "☀ " + time;
+  return String(text ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
 
-updateClock();
+function formatTime(date){
 
+  return date.toLocaleTimeString(
+    "fr-FR",
+    {
+      hour:"2-digit",
+      minute:"2-digit"
+    }
+  );
+
+}
+
+
+function formatShortDate(date){
+
+  return date.toLocaleDateString(
+    "fr-FR",
+    {
+      day:"numeric",
+      month:"short"
+    }
+  );
+
+}
+
+
+function formatDuration(start,end){
+
+  if(!start || !end){
+    return "";
+  }
+
+  const minutes =
+    Math.max(
+      0,
+      Math.round(
+        (end-start)/60000
+      )
+    );
+
+  if(minutes===0){
+    return "";
+  }
+
+  const hours =
+    Math.floor(minutes/60);
+
+  const rest =
+    minutes%60;
+
+  if(hours && rest){
+    return `${hours}h${String(rest).padStart(2,"0")}`;
+  }
+
+  if(hours){
+    return `${hours}h${rest === 0 ? "00" : rest}`;
+  }
+
+  return `${minutes} min`;
+
+}
+
+
+function eventColor(index){
+
+  const colors=[
+    "#39a5ff",
+    "#75dc35",
+    "#ff8d16",
+    "#ffd51d",
+    "#bb65ff",
+    "#ff7ca5"
+  ];
+
+  return colors[index%colors.length];
+
+}
+
+
+function eventIcon(title){
+
+  const text=
+    String(title||"")
+      .toLowerCase();
+
+  if(
+    text.includes("foot") ||
+    text.includes("match")
+  ){
+    return "⚽";
+  }
+
+  if(
+    text.includes("running") ||
+    text.includes("course à pied")
+  ){
+    return "🏃";
+  }
+
+  if(
+    text.includes("réunion") ||
+    text.includes("travail")
+  ){
+    return "💼";
+  }
+
+  if(
+    text.includes("dentiste") ||
+    text.includes("médecin") ||
+    text.includes("ostéo") ||
+    text.includes("rdv")
+  ){
+    return "📅";
+  }
+
+  if(
+    text.includes("école") ||
+    text.includes("collège") ||
+    text.includes("lycée")
+  ){
+    return "🎓";
+  }
+
+  if(text.includes("famille")){
+    return "👨‍👩‍👦‍👦";
+  }
+
+  if(text.includes("anniversaire")){
+    return "🎂";
+  }
+
+  if(text.includes("restaurant")){
+    return "🍽️";
+  }
+
+  return "📌";
+
+}
+
+
+
+/* =========================================================
+   HORLOGE
+========================================================= */
+
+function updateClock(){
+
+  const now=
+    new Date();
+
+  const time=
+    now.toLocaleTimeString(
+      "fr-FR",
+      {
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    );
+
+  let date=
+    now.toLocaleDateString(
+      "fr-FR",
+      {
+        weekday:"long",
+        day:"numeric",
+        month:"long",
+        year:"numeric"
+      }
+    );
+
+  date=
+    date.charAt(0).toUpperCase()
+    +
+    date.slice(1);
+
+  document
+    .getElementById("time")
+    .textContent=
+    time;
+
+  document
+    .getElementById("date")
+    .textContent=
+    date;
+
+  document
+    .getElementById("footer-time")
+    .textContent=
+    "☀ " + time;
+
+}
+
+updateClock();
 
 setInterval(
   updateClock,
@@ -1829,51 +1256,58 @@ setInterval(
 
 /* =========================================================
    METEO
-   ========================================================= */
+========================================================= */
 
-function weatherInfo(code) {
+function weatherInfo(code){
 
-  if (code === 0)
-    return ["☀️", "Ensoleillé"];
+  if(code===0){
+    return ["☀️","Ensoleillé"];
+  }
 
-  if (code === 1)
-    return ["🌤️", "Peu nuageux"];
+  if(code===1){
+    return ["🌤️","Peu nuageux"];
+  }
 
-  if (code === 2)
-    return ["⛅", "Partiellement nuageux"];
+  if(code===2){
+    return ["⛅","Partiellement nuageux"];
+  }
 
-  if (code === 3)
-    return ["☁️", "Couvert"];
+  if(code===3){
+    return ["☁️","Couvert"];
+  }
 
-  if (code === 45 || code === 48)
-    return ["🌫️", "Brouillard"];
+  if(code===45 || code===48){
+    return ["🌫️","Brouillard"];
+  }
 
-  if (code >= 51 && code <= 57)
-    return ["🌦️", "Bruine"];
+  if(code>=51 && code<=57){
+    return ["🌦️","Bruine"];
+  }
 
-  if (code >= 61 && code <= 67)
-    return ["🌧️", "Pluie"];
+  if(code>=61 && code<=67){
+    return ["🌧️","Pluie"];
+  }
 
-  if (code >= 71 && code <= 77)
-    return ["🌨️", "Neige"];
+  if(code>=71 && code<=77){
+    return ["🌨️","Neige"];
+  }
 
-  if (code >= 80 && code <= 82)
-    return ["🌦️", "Averses"];
+  if(code>=80 && code<=82){
+    return ["🌦️","Averses"];
+  }
 
-  if (code >= 95)
-    return ["⛈️", "Orage"];
+  if(code>=95){
+    return ["⛈️","Orage"];
+  }
 
-
-  return ["🌤️", "Variable"];
+  return ["🌤️","Variable"];
 
 }
 
 
+async function loadWeather(){
 
-async function loadWeather() {
-
-
-  const url =
+  const url=
     "https://api.open-meteo.com/v1/forecast"
     +
     "?latitude=43.837&longitude=5.035"
@@ -1886,49 +1320,41 @@ async function loadWeather() {
     +
     "&forecast_days=6";
 
+  try{
 
-  try {
-
-
-    const response =
+    const response=
       await fetch(url);
 
-
-    const data =
+    const data=
       await response.json();
 
-
-    const info =
+    const info=
       weatherInfo(
         data.current.weather_code
       );
 
-
     document
       .getElementById("weather-icon")
-      .textContent =
+      .textContent=
       info[0];
-
 
     document
       .getElementById("temperature")
-      .textContent =
+      .textContent=
       Math.round(
         data.current.temperature_2m
       )
       +
       "°";
 
-
     document
       .getElementById("weather-description")
-      .textContent =
+      .textContent=
       info[1];
-
 
     document
       .getElementById("weather-max")
-      .textContent =
+      .textContent=
       "🌡 ↑ "
       +
       Math.round(
@@ -1937,10 +1363,9 @@ async function loadWeather() {
       +
       "°";
 
-
     document
       .getElementById("weather-min")
-      .textContent =
+      .textContent=
       "↓ "
       +
       Math.round(
@@ -1949,488 +1374,165 @@ async function loadWeather() {
       +
       "°";
 
-
-    const forecast =
+    const forecast=
       document.getElementById("forecast");
 
+    forecast.innerHTML="";
 
-    forecast.innerHTML =
-      "";
+    for(let i=1;i<=5;i++){
 
-
-    for (let i = 1; i <= 5; i++) {
-
-
-      const date =
+      const date=
         new Date(
           data.daily.time[i]
           +
           "T12:00:00"
         );
 
-
-      const dayName =
+      const dayName=
         date
           .toLocaleDateString(
             "fr-FR",
             {
-              weekday: "short"
+              weekday:"short"
             }
           )
-          .replace(".", "")
+          .replace(".","")
           .toUpperCase();
 
-
-      const dayInfo =
+      const dayInfo=
         weatherInfo(
           data.daily.weather_code[i]
         );
 
+      forecast.innerHTML += `
+        <div class="forecast-day">
 
-      const day =
-        document.createElement(
-          "div"
-        );
+          <div class="forecast-name">
+            ${dayName}
+          </div>
 
+          <div class="forecast-icon">
+            ${dayInfo[0]}
+          </div>
 
-      day.className =
-        "forecast-day";
+          <div class="forecast-max">
+            ${Math.round(
+              data.daily.temperature_2m_max[i]
+            )}°
+          </div>
 
+          <div class="forecast-min">
+            ${Math.round(
+              data.daily.temperature_2m_min[i]
+            )}°
+          </div>
 
-      day.innerHTML = `
-
-        <div class="forecast-name">
-          ${dayName}
         </div>
-
-        <div class="forecast-icon">
-          ${dayInfo[0]}
-        </div>
-
-        <div class="forecast-max">
-          ${Math.round(
-            data.daily.temperature_2m_max[i]
-          )}°
-        </div>
-
-        <div class="forecast-min">
-          ${Math.round(
-            data.daily.temperature_2m_min[i]
-          )}°
-        </div>
-
       `;
-
-
-      forecast.appendChild(
-        day
-      );
 
     }
 
-
   }
 
-  catch(error) {
-
-
-    document
-      .getElementById("weather-description")
-      .textContent =
-      "Météo indisponible";
-
+  catch(error){
 
     console.error(
       "Erreur météo :",
       error
     );
 
+    document
+      .getElementById("weather-description")
+      .textContent=
+      "Météo indisponible";
+
   }
 
 }
 
-
-
 loadWeather();
-
 
 setInterval(
   loadWeather,
-  15 * 60 * 1000
+  15*60*1000
 );
 
 
 
 /* =========================================================
-   CALENDRIER
-   ========================================================= */
+   AUJOURD'HUI
+========================================================= */
 
-function escapeHtml(text) {
+function renderToday(events){
 
-  return String(
-    text || ""
-  )
-
-  .replaceAll(
-    "&",
-    "&amp;"
-  )
-
-  .replaceAll(
-    "<",
-    "&lt;"
-  )
-
-  .replaceAll(
-    ">",
-    "&gt;"
-  )
-
-  .replaceAll(
-    '"',
-    "&quot;"
-  )
-
-  .replaceAll(
-    "'",
-    "&#039;"
-  );
-
-}
-
-
-
-function formatTime(date) {
-
-  return date
-    .toLocaleTimeString(
-      "fr-FR",
-      {
-        hour:
-          "2-digit",
-
-        minute:
-          "2-digit"
-      }
-    );
-
-}
-
-
-
-function formatDuration(
-  start,
-  end
-) {
-
-
-  if (!start || !end)
-    return "";
-
-
-  const minutes =
-    Math.max(
-      0,
-      Math.round(
-        (end - start)
-        /
-        60000
-      )
-    );
-
-
-  if (minutes === 0)
-    return "";
-
-
-  const hours =
-    Math.floor(
-      minutes / 60
-    );
-
-
-  const rest =
-    minutes % 60;
-
-
-  if (hours && rest) {
-
-    return (
-      hours
-      +
-      "h"
-      +
-      String(rest)
-        .padStart(
-          2,
-          "0"
-        )
-    );
-
-  }
-
-
-  if (hours) {
-
-    return (
-      hours
-      +
-      "h00"
-    );
-
-  }
-
-
-  return (
-    minutes
-    +
-    " min"
-  );
-
-}
-
-
-
-function eventColor(index) {
-
-
-  const colors = [
-
-    "#39a5ff",
-
-    "#75dc35",
-
-    "#ff8d16",
-
-    "#ffd51d",
-
-    "#bb65ff"
-
-  ];
-
-
-  return colors[
-    index % colors.length
-  ];
-
-}
-
-
-
-function eventIcon(title) {
-
-
-  const text =
-    String(
-      title || ""
-    )
-    .toLowerCase();
-
-
-  if (
-    text.includes("foot")
-    ||
-    text.includes("match")
-  )
-    return "⚽";
-
-
-  if (
-    text.includes("running")
-    ||
-    text.includes("course à pied")
-  )
-    return "🏃";
-
-
-  if (
-    text.includes("réunion")
-    ||
-    text.includes("travail")
-  )
-    return "💼";
-
-
-  if (
-    text.includes("dentiste")
-    ||
-    text.includes("médecin")
-    ||
-    text.includes("ostéo")
-    ||
-    text.includes("rdv")
-  )
-    return "📅";
-
-
-  if (
-    text.includes("école")
-    ||
-    text.includes("collège")
-    ||
-    text.includes("lycée")
-  )
-    return "🎓";
-
-
-  if (
-    text.includes("famille")
-  )
-    return "👨‍👩‍👦‍👦";
-
-
-  if (
-    text.includes("restaurant")
-  )
-    return "🍽️";
-
-
-  if (
-    text.includes("anniversaire")
-  )
-    return "🎂";
-
-
-  return "📌";
-
-}
-
-
-
-/* =========================================================
-   EVENEMENTS DU JOUR
-   ========================================================= */
-
-function renderToday(events) {
-
-
-  const container =
+  const container=
     document.getElementById(
       "today-events"
     );
 
-
-  if (!container)
-    return;
-
-
-  const now =
+  const now=
     new Date();
 
-
-  const todayStart =
+  const todayStart=
     new Date(
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
-      0,
-      0,
-      0,
-      0
+      0,0,0,0
     );
 
-
-  const tomorrow =
-    new Date(
-      todayStart
-    );
-
+  const tomorrow=
+    new Date(todayStart);
 
   tomorrow.setDate(
-    tomorrow.getDate()
-    +
-    1
+    tomorrow.getDate()+1
   );
 
-
-  const todayEvents =
+  const todayEvents=
     events
-
-      .map(
-        event => ({
-          ...event,
-
-          startDate:
-            new Date(
-              event.start
-            ),
-
-          endDate:
-            new Date(
-              event.end
-            )
-        })
+      .map(event=>({
+        ...event,
+        startDate:new Date(event.start),
+        endDate:new Date(event.end)
+      }))
+      .filter(event=>
+        event.startDate<tomorrow
+        &&
+        event.endDate>todayStart
       )
-
-      .filter(
-        event =>
-          event.startDate < tomorrow
-          &&
-          event.endDate > todayStart
-      )
-
       .sort(
-        (a,b) =>
-          a.startDate
-          -
-          b.startDate
+        (a,b)=>
+        a.startDate-b.startDate
       );
 
+  if(todayEvents.length===0){
 
-  if (
-    todayEvents.length
-    ===
-    0
-  ) {
-
-
-    container.innerHTML = `
-
+    container.innerHTML=`
       <div class="no-event">
         Aucun événement aujourd’hui
       </div>
-
     `;
 
-
     return;
-
   }
 
-
-
-  container.innerHTML =
+  container.innerHTML=
     todayEvents
-
-      .slice(
-        0,
-        6
-      )
-
+      .slice(0,6)
       .map(
-        (
-          event,
-          index
-        ) => {
+        (event,index)=>{
 
+          const color=
+            eventColor(index);
 
-          const color =
-            eventColor(
-              index
-            );
-
-
-          const start =
+          const time=
             event.allDay
             ?
             "Journée"
             :
-            formatTime(
-              event.startDate
-            );
+            formatTime(event.startDate);
 
-
-          const duration =
+          const duration=
             event.allDay
             ?
             ""
@@ -2440,45 +1542,43 @@ function renderToday(events) {
               event.endDate
             );
 
-
           return `
+            <div
+              class="event"
+              style="--event-color:${color}"
+            >
 
-          <div
-            class="event"
-            style="--event-color:${color}"
-          >
-
-            <div class="event-time">
-              ${start}
-            </div>
-
-            <div class="event-icon">
-              ${eventIcon(event.title)}
-            </div>
-
-            <div>
-
-              <div class="event-name">
-                ${escapeHtml(event.title)}
+              <div class="event-time">
+                ${time}
               </div>
 
-              <div class="event-place">
-                ${escapeHtml(event.location || "")}
+              <div class="event-icon">
+                ${eventIcon(event.title)}
+              </div>
+
+              <div>
+
+                <div class="event-name">
+                  ${escapeHtml(event.title)}
+                </div>
+
+                <div class="event-place">
+                  ${escapeHtml(
+                    event.location || ""
+                  )}
+                </div>
+
+              </div>
+
+              <div class="event-duration">
+                ${duration}
               </div>
 
             </div>
-
-            <div class="event-duration">
-              ${duration}
-            </div>
-
-          </div>
-
           `;
 
         }
       )
-
       .join("");
 
 }
@@ -2486,138 +1586,73 @@ function renderToday(events) {
 
 
 /* =========================================================
-   SEMAINE
-   ========================================================= */
+   CETTE SEMAINE
+========================================================= */
 
-function renderWeek(events) {
+function renderWeek(events){
 
-
-  const container =
+  const container=
     document.getElementById(
       "week-days"
     );
 
-
-  if (!container)
-    return;
-
-
-  const now =
+  const now=
     new Date();
 
-
-  const firstDay =
+  const firstDay=
     new Date(
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
-      0,
-      0,
-      0,
-      0
+      0,0,0,0
     );
 
-
-  const dayNames = [
-
+  const dayNames=[
     "DIM.",
-
     "LUN.",
-
     "MAR.",
-
     "MER.",
-
     "JEU.",
-
     "VEN.",
-
     "SAM."
-
   ];
 
+  let html="";
 
-  let html =
-    "";
+  for(let i=0;i<7;i++){
 
-
-  for (
-    let i = 0;
-    i < 7;
-    i++
-  ) {
-
-
-    const dayStart =
-      new Date(
-        firstDay
-      );
-
+    const dayStart=
+      new Date(firstDay);
 
     dayStart.setDate(
-      firstDay.getDate()
-      +
-      i
+      firstDay.getDate()+i
     );
 
-
-    const dayEnd =
-      new Date(
-        dayStart
-      );
-
+    const dayEnd=
+      new Date(dayStart);
 
     dayEnd.setDate(
-      dayEnd.getDate()
-      +
-      1
+      dayEnd.getDate()+1
     );
 
-
-    const dayEvents =
+    const dayEvents=
       events
-
-        .map(
-          event => ({
-            ...event,
-
-            startDate:
-              new Date(
-                event.start
-              ),
-
-            endDate:
-              new Date(
-                event.end
-              )
-          })
+        .map(event=>({
+          ...event,
+          startDate:new Date(event.start),
+          endDate:new Date(event.end)
+        }))
+        .filter(event=>
+          event.startDate<dayEnd
+          &&
+          event.endDate>dayStart
         )
-
-        .filter(
-          event =>
-            event.startDate < dayEnd
-            &&
-            event.endDate > dayStart
-        )
-
         .sort(
-          (a,b) =>
-            a.startDate
-            -
-            b.startDate
+          (a,b)=>
+          a.startDate-b.startDate
         );
 
-
-    const todayClass =
-      i === 0
-      ?
-      "today-number"
-      :
-      "";
-
-
     html += `
-
       <div class="week-day">
 
         <div class="day-name">
@@ -2626,59 +1661,38 @@ function renderWeek(events) {
           ]}
         </div>
 
-        <div
-          class="day-number ${todayClass}"
-        >
+        <div class="
+          day-number
+          ${i===0 ? "today-number" : ""}
+        ">
           ${dayStart.getDate()}
         </div>
-
     `;
 
-
-    if (
-      dayEvents.length
-      ===
-      0
-    ) {
-
+    if(dayEvents.length===0){
 
       html += `
-
         <div
           class="week-event"
-          style="color:#999"
+          style="color:#888"
         >
           —
         </div>
-
       `;
 
     }
 
-
-    else {
-
+    else{
 
       dayEvents
-        .slice(
-          0,
-          2
-        )
-
+        .slice(0,2)
         .forEach(
-          (
-            event,
-            index
-          ) => {
+          (event,index)=>{
 
+            const color=
+              eventColor(index);
 
-            const color =
-              eventColor(
-                index
-              );
-
-
-            const time =
+            const time=
               event.allDay
               ?
               ""
@@ -2687,29 +1701,25 @@ function renderWeek(events) {
                 event.startDate
               );
 
-
             html += `
-
               <div
                 class="week-event"
                 style="color:${color}"
-                title="${escapeHtml(event.title)}"
+                title="${escapeHtml(
+                  event.title
+                )}"
               >
+                ${eventIcon(event.title)}
                 ${escapeHtml(event.title)}
               </div>
-
             `;
 
-
-            if (time) {
-
+            if(time){
 
               html += `
-
-                <div class="week-event">
+                <div class="week-time">
                   ${time}
                 </div>
-
               `;
 
             }
@@ -2719,94 +1729,339 @@ function renderWeek(events) {
 
     }
 
-
     html += `
-
       </div>
-
     `;
 
   }
 
-
-  container.innerHTML =
-    html;
+  container.innerHTML=html;
 
 }
 
 
 
 /* =========================================================
-   DATE DE DERNIERE MISE A JOUR
-   ========================================================= */
+   COURSES
+========================================================= */
 
-function showLastUpdate(
-  generatedAt
-) {
+function renderCourses(courses){
 
-
-  if (!generatedAt)
-    return;
-
-
-  const generated =
-    new Date(
-      generatedAt
+  const container=
+    document.getElementById(
+      "shopping-list"
     );
 
+  if(
+    !Array.isArray(courses)
+    ||
+    courses.length===0
+  ){
 
-  const now =
+    container.innerHTML=`
+      <div class="shopping-empty">
+        Liste vide ✓
+      </div>
+    `;
+
+    return;
+  }
+
+  container.innerHTML=
+    courses
+      .slice(0,14)
+      .map(item=>`
+
+        <div class="shop-item">
+
+          <span class="check">
+          </span>
+
+          <span>
+            ${escapeHtml(item)}
+          </span>
+
+        </div>
+
+      `)
+      .join("");
+
+}
+
+
+
+/* =========================================================
+   ANNIVERSAIRES
+========================================================= */
+
+function birthdayDisplay(item){
+
+  if(
+    typeof item==="object"
+    &&
+    item!==null
+  ){
+
+    const title=
+      item.title
+      ||
+      item.name
+      ||
+      "Anniversaire";
+
+    let dateText="";
+
+    const rawDate=
+      item.date
+      ||
+      item.start
+      ||
+      "";
+
+    if(rawDate){
+
+      const date=
+        new Date(rawDate);
+
+      if(!isNaN(date)){
+
+        dateText=
+          formatShortDate(date);
+
+      }
+
+    }
+
+    return {
+      title,
+      date:dateText
+    };
+
+  }
+
+
+  const text=
+    String(item||"").trim();
+
+
+  /*
+     Si plus tard le raccourci envoie par exemple :
+     "21 août | Noa"
+  */
+
+  if(text.includes("|")){
+
+    const parts=
+      text.split("|");
+
+    return {
+      date:parts[0].trim(),
+      title:parts.slice(1).join("|").trim()
+    };
+
+  }
+
+
+  return {
+    date:"",
+    title:text
+  };
+
+}
+
+
+function renderBirthdays(birthdays){
+
+  const container=
+    document.getElementById(
+      "birthdays-list"
+    );
+
+  if(
+    !Array.isArray(birthdays)
+    ||
+    birthdays.length===0
+  ){
+
+    container.innerHTML=`
+      <div class="empty-small">
+        Aucun anniversaire à venir
+      </div>
+    `;
+
+    return;
+  }
+
+  container.innerHTML=
+    birthdays
+      .slice(0,3)
+      .map(item=>{
+
+        const birthday=
+          birthdayDisplay(item);
+
+        return `
+          <div class="birthday">
+
+            <div class="birthday-date">
+              ${escapeHtml(
+                birthday.date || "À venir"
+              )}
+            </div>
+
+            <div class="birthday-name">
+              ${escapeHtml(
+                birthday.title
+              )}
+            </div>
+
+          </div>
+        `;
+
+      })
+      .join("");
+
+}
+
+
+
+/* =========================================================
+   A RETENIR
+========================================================= */
+
+function renderImportant(items){
+
+  const container=
+    document.getElementById(
+      "important-list"
+    );
+
+  if(
+    !Array.isArray(items)
+    ||
+    items.length===0
+  ){
+
+    container.innerHTML=`
+      <div class="empty-small">
+        Rien de particulier cette semaine
+      </div>
+    `;
+
+    return;
+  }
+
+  container.innerHTML=
+    items
+      .slice(0,5)
+      .map(item=>{
+
+        let title=
+          typeof item==="string"
+          ?
+          item
+          :
+          item.title;
+
+        let dateText="";
+
+        if(
+          typeof item==="object"
+          &&
+          item.start
+        ){
+
+          const date=
+            new Date(item.start);
+
+          if(!isNaN(date)){
+
+            dateText=
+              formatShortDate(date);
+
+          }
+
+        }
+
+        return `
+          <div class="reminder">
+
+            ${escapeHtml(title)}
+
+            ${
+              dateText
+              ?
+              `<span class="reminder-date">
+                &nbsp;(${dateText})
+               </span>`
+              :
+              ""
+            }
+
+          </div>
+        `;
+
+      })
+      .join("");
+
+}
+
+
+
+/* =========================================================
+   DERNIERE MISE A JOUR
+========================================================= */
+
+function showLastUpdate(generatedAt){
+
+  if(!generatedAt){
+    return;
+  }
+
+  const generated=
+    new Date(generatedAt);
+
+  const now=
     new Date();
 
-
-  const minutes =
+  const minutes=
     Math.max(
       0,
       Math.round(
-        (
-          now
-          -
-          generated
-        )
-        /
-        60000
+        (now-generated)/60000
       )
     );
 
-
   let label;
 
+  if(minutes<=1){
 
-  if (
-    minutes
-    <=
-    1
-  ) {
-
-    label =
+    label=
       "à l’instant";
 
   }
 
+  else if(minutes<60){
 
-  else {
-
-    label =
-      "il y a "
-      +
-      minutes
-      +
-      " min";
+    label=
+      `il y a ${minutes} min`;
 
   }
 
+  else{
+
+    const hours=
+      Math.floor(minutes/60);
+
+    label=
+      `il y a ${hours} h`;
+
+  }
 
   document
-    .getElementById(
-      "last-update"
-    )
-    .innerHTML =
-    "♧ &nbsp; Dernière mise à jour : "
+    .getElementById("last-update")
+    .innerHTML=
+    "👥 &nbsp; Dernière mise à jour : "
     +
     label;
 
@@ -2815,28 +2070,24 @@ function showLastUpdate(
 
 
 /* =========================================================
-   CHARGEMENT CALENDRIER JSON
-   ========================================================= */
+   CHARGEMENT GLOBAL
+========================================================= */
 
-async function loadCalendarData() {
+async function loadDashboardData(){
 
+  try{
 
-  try {
-
-
-    const response =
+    const response=
       await fetch(
-        "calendar-data.json?v="
+        "dashboard-data.json?v="
         +
         Date.now(),
         {
-          cache:
-            "no-store"
+          cache:"no-store"
         }
       );
 
-
-    if (!response.ok) {
+    if(!response.ok){
 
       throw new Error(
         "HTTP "
@@ -2846,106 +2097,65 @@ async function loadCalendarData() {
 
     }
 
-
-    const data =
+    const data=
       await response.json();
 
-
-    const events =
-      data.events
-      ||
-      [];
-
-
     renderToday(
-      events
+      data.events || []
     );
-
 
     renderWeek(
-      events
+      data.events || []
     );
 
+    renderCourses(
+      data.courses || []
+    );
+
+    renderBirthdays(
+      data.birthdays || []
+    );
+
+    renderImportant(
+      data.important || []
+    );
 
     showLastUpdate(
       data.generatedAt
     );
 
-
   }
 
-
-  catch(error) {
-
+  catch(error){
 
     console.error(
-      "Erreur calendrier :",
+      "Erreur Dashboard :",
       error
     );
 
-
-    const today =
-      document.getElementById(
-        "today-events"
-      );
-
-
-    if (today) {
-
-
-      today.innerHTML = `
-
+    document
+      .getElementById("today-events")
+      .innerHTML=`
         <div class="no-event">
           Agenda temporairement indisponible
         </div>
-
       `;
-
-    }
-
-
-    const week =
-      document.getElementById(
-        "week-days"
-      );
-
-
-    if (week) {
-
-
-      week.innerHTML = `
-
-        <div
-          style="
-            padding:20px;
-            color:#aaa;
-            grid-column:1 / -1;
-          "
-        >
-          Semaine indisponible
-        </div>
-
-      `;
-
-    }
 
   }
 
 }
 
 
-
-loadCalendarData();
+loadDashboardData();
 
 
 setInterval(
-  loadCalendarData,
-  5 * 60 * 1000
+  loadDashboardData,
+  5*60*1000
 );
 
 
 </script>
-
 
 </body>
 
