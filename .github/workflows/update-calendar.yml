@@ -43,7 +43,7 @@ jobs:
           print("Calendrier iCloud récupéré avec succès.")
           PY
 
-           - name: Installer le parseur calendrier
+      - name: Installer le parseur calendrier
         run: |
           python3 -m pip install --quiet icalendar recurring-ical-events
 
@@ -123,21 +123,10 @@ jobs:
               "events": events
           }
 
-          with open(
-              "calendar-data.json",
-              "w",
-              encoding="utf-8"
-          ) as f:
-              json.dump(
-                  output,
-                  f,
-                  ensure_ascii=False,
-                  indent=2
-              )
+          with open("calendar-data.json", "w", encoding="utf-8") as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
 
-          print(
-              f"{len(events)} événement(s) préparé(s)."
-          )
+          print(f"{len(events)} événement(s) préparé(s).")
           PY
 
       - name: Supprimer la copie complète du calendrier
