@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T01:00:22.018140+02:00",
+  "generatedAt": "2026-08-09T01:12:41.152507+02:00",
   "events": [
     {
       "title": "⚽️ Jules Entrainement ",
@@ -29,5 +29,8 @@
       "end": "2026-08-13T19:30:00+02:00",
       "allDay": false
     }
-  ]
+  ],
+  "courses": [],
+  "birthdays": [],
+  "important": []
 }
