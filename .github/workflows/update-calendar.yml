@@ -2,6 +2,16 @@ name: Mise à jour calendrier familial
 
 on:
   workflow_dispatch:
+    inputs:
+      courses:
+        description: "Liste de courses envoyée par l'iPhone"
+        required: false
+        type: string
+      anniversaires:
+        description: "Anniversaires envoyés par l'iPhone"
+        required: false
+        type: string
+
   schedule:
     - cron: "*/15 * * * *"
 
@@ -48,9 +58,14 @@ jobs:
           python3 -m pip install --quiet icalendar recurring-ical-events
 
       - name: Préparer les données du dashboard
+        env:
+          COURSES_INPUT: ${{ inputs.courses }}
+          ANNIVERSAIRES_INPUT: ${{ inputs.anniversaires }}
         run: |
           python3 - <<'PY'
           import json
+          import os
+
           from datetime import datetime, timedelta, time
           from zoneinfo import ZoneInfo
 
@@ -60,7 +75,12 @@ jobs:
           PARIS = ZoneInfo("Europe/Paris")
 
           now = datetime.now(PARIS)
-          start = datetime.combine(now.date(), time.min, tzinfo=PARIS)
+          start = datetime.combine(
+              now.date(),
+              time.min,
+              tzinfo=PARIS
+          )
+
           end = start + timedelta(days=8)
 
           with open("calendar.ics", "rb") as f:
@@ -74,11 +94,17 @@ jobs:
                   continue
 
               dtstart = event.decoded("DTSTART")
-              dtend = event.decoded("DTEND") if event.get("DTEND") else None
+
+              dtend = (
+                  event.decoded("DTEND")
+                  if event.get("DTEND")
+                  else None
+              )
 
               all_day = not isinstance(dtstart, datetime)
 
               if all_day:
+
                   start_dt = datetime.combine(
                       dtstart,
                       time.min,
@@ -95,16 +121,19 @@ jobs:
                       end_dt = start_dt + timedelta(days=1)
 
               else:
+
                   if dtstart.tzinfo is None:
                       dtstart = dtstart.replace(tzinfo=PARIS)
 
                   start_dt = dtstart.astimezone(PARIS)
 
                   if dtend:
+
                       if dtend.tzinfo is None:
                           dtend = dtend.replace(tzinfo=PARIS)
 
                       end_dt = dtend.astimezone(PARIS)
+
                   else:
                       end_dt = start_dt
 
@@ -118,28 +147,122 @@ jobs:
 
           events.sort(key=lambda e: e["start"])
 
+
+          # ============================
+          # COURSES
+          # ============================
+
+          courses_raw = os.environ.get("COURSES_INPUT", "").strip()
+
+          courses = [
+              line.strip()
+              for line in courses_raw.splitlines()
+              if line.strip()
+          ]
+
+
+          # ============================
+          # ANNIVERSAIRES
+          # ============================
+
+          birthdays_raw = os.environ.get(
+              "ANNIVERSAIRES_INPUT",
+              ""
+          ).strip()
+
+          birthdays = [
+              line.strip()
+              for line in birthdays_raw.splitlines()
+              if line.strip()
+          ]
+
+
+          # ============================
+          # A RETENIR
+          # ============================
+
+          keywords_to_ignore = [
+              "entraînement",
+              "entrainement",
+              "football",
+              "foot",
+              "running"
+          ]
+
+          important = []
+
+          for event in events:
+
+              title_lower = event["title"].lower()
+
+              if any(
+                  keyword in title_lower
+                  for keyword in keywords_to_ignore
+              ):
+                  continue
+
+              important.append({
+                  "title": event["title"],
+                  "start": event["start"]
+              })
+
+          important = important[:5]
+
+
           output = {
               "generatedAt": now.isoformat(),
-              "events": events
+              "events": events,
+              "courses": courses,
+              "birthdays": birthdays,
+              "important": important
           }
 
-          with open("calendar-data.json", "w", encoding="utf-8") as f:
-              json.dump(output, f, ensure_ascii=False, indent=2)
 
-          print(f"{len(events)} événement(s) préparé(s).")
+          with open(
+              "dashboard-data.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+
+          print(
+              f"{len(events)} événement(s)"
+          )
+
+          print(
+              f"{len(courses)} course(s)"
+          )
+
+          print(
+              f"{len(birthdays)} anniversaire(s)"
+          )
+
+          print(
+              f"{len(important)} date(s) importante(s)"
+          )
+
           PY
 
-      - name: Supprimer la copie complète du calendrier
+      - name: Supprimer les fichiers temporaires
         run: |
           rm -f calendar.ics
 
-      - name: Publier les données utiles
+      - name: Publier les données du dashboard
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git rm --ignore-unmatch calendar.ics
-          git add calendar-data.json
+          git rm --ignore-unmatch calendar-data.json
 
-          git diff --cached --quiet || git commit -m "Mise à jour agenda familial"
+          git add dashboard-data.json
+
+          git diff --cached --quiet || git commit -m "Mise à jour données dashboard"
           git push
