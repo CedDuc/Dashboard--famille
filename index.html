@@ -1,27 +1,88 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Famille</title>
-  <style>
-    body {
-      margin: 0;
-      background: #111;
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    h1 {
-      font-size: 64px;
-    }
-  </style>
+<title>Dashboard Famille</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=85");
+
+    background-size: cover;
+    background-position: center;
+}
+
+/* HEURE */
+
+.clock {
+    position: absolute;
+    top: 45px;
+    left: 60px;
+}
+
+#time {
+    font-size: 76px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+#date {
+    margin-top: 12px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+</style>
 </head>
+
 <body>
-  <h1>Dashboard Famille ✅</h1>
+
+<div class="clock">
+    <div id="time">--:--</div>
+    <div id="date">Chargement...</div>
+</div>
+
+<script>
+
+function updateClock() {
+
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("fr-FR", {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+
+    const date = now.toLocaleDateString("fr-FR", {
+        weekday: "long",
+        day: "numeric",
+        month: "long"
+    });
+
+    document.getElementById("time").textContent = time;
+    document.getElementById("date").textContent = date;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+</script>
+
 </body>
 </html>
