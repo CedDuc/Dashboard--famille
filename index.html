@@ -11,91 +11,197 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     margin: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-
-    background:
-        linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.28)),
-        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=85");
-
-    background-size: cover;
-    background-position: center;
 }
 
-/* HEURE ET DATE */
+body {
+    background: #111;
+}
+
+/* =========================
+   FOND PHOTO
+   ========================= */
+
+#background {
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1.8s ease-in-out;
+    z-index: -3;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.52) 0%,
+            rgba(0,0,0,.16) 34%,
+            rgba(0,0,0,.08) 60%,
+            rgba(0,0,0,.42) 100%
+        );
+    z-index: -2;
+}
+
+/* =========================
+   HORLOGE
+   ========================= */
 
 .clock {
     position: absolute;
-    top: 32px;
-    left: 38px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.65);
+    top: 24px;
+    left: 30px;
+    text-shadow: 0 2px 8px rgba(0,0,0,.8);
 }
 
 #time {
     font-size: 76px;
     font-weight: 300;
-    line-height: 1;
+    line-height: .95;
 }
 
 #date {
     margin-top: 12px;
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 23px;
+    font-weight: 600;
 }
 
-/* METEO */
+/* =========================
+   AGENDA
+   ========================= */
+
+.agenda {
+    position: absolute;
+    left: 30px;
+    top: 175px;
+    width: 560px;
+}
+
+.block-title {
+    font-size: 21px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 7px rgba(0,0,0,.9);
+}
+
+.agenda-item {
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    gap: 16px;
+    margin-bottom: 14px;
+    padding: 10px 13px;
+    border-left: 4px solid rgba(255,255,255,.85);
+    background: rgba(0,0,0,.18);
+    border-radius: 0 10px 10px 0;
+    backdrop-filter: blur(2px);
+}
+
+.agenda-date {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.agenda-time {
+    font-size: 15px;
+    opacity: .9;
+}
+
+.agenda-title {
+    font-size: 21px;
+    font-weight: 600;
+    align-self: center;
+}
+
+/* =========================
+   ANNIVERSAIRES
+   ========================= */
+
+.birthdays {
+    position: absolute;
+    left: 30px;
+    bottom: 28px;
+    width: 500px;
+    padding: 14px 18px;
+    background: rgba(0,0,0,.22);
+    border-radius: 14px;
+    backdrop-filter: blur(3px);
+}
+
+.birthday-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.birthday-date {
+    opacity: .9;
+}
+
+/* =========================
+   METEO
+   ========================= */
 
 .weather {
     position: absolute;
-    top: 30px;
-    right: 38px;
-    width: 440px;
+    top: 24px;
+    right: 30px;
+    width: 430px;
     text-align: right;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    text-shadow: 0 2px 8px rgba(0,0,0,.85);
 }
 
 .weather-main {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 18px;
+    gap: 15px;
 }
 
 #weather-icon {
-    font-size: 64px;
+    font-size: 62px;
 }
 
 #temperature {
     font-size: 72px;
     font-weight: 300;
+    line-height: .95;
 }
 
 #weather-label {
-    font-size: 20px;
-    margin-top: 4px;
+    margin-top: 7px;
+    font-size: 19px;
+    font-weight: 600;
 }
 
 #wind {
-    font-size: 17px;
-    margin-top: 6px;
+    margin-top: 5px;
+    font-size: 16px;
 }
 
 .forecast {
     margin-top: 24px;
     display: grid;
-    gap: 12px;
+    gap: 11px;
 }
 
 .forecast-day {
     display: grid;
-    grid-template-columns: 110px 55px 1fr;
+    grid-template-columns: 120px 55px 1fr;
     align-items: center;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .forecast-day .day {
@@ -105,46 +211,117 @@ body {
 
 .forecast-day .icon {
     text-align: center;
-    font-size: 29px;
+    font-size: 27px;
 }
 
 .forecast-day .temps {
     text-align: right;
 }
 
-#error {
-    margin-top: 15px;
-    font-size: 16px;
+/* =========================
+   PETITS ECRANS
+   ========================= */
+
+@media (max-width: 1200px) {
+    .agenda {
+        width: 470px;
+    }
+
+    #time {
+        font-size: 64px;
+    }
+
+    .weather {
+        width: 380px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<div id="background"></div>
+<div class="overlay"></div>
+
+<!-- HEURE -->
 <div class="clock">
     <div id="time">--:--</div>
-    <div id="date">Chargement...</div>
+    <div id="date">Chargement…</div>
 </div>
 
-<div class="weather">
+<!-- AGENDA -->
+<section class="agenda">
+    <div class="block-title">📅 Agenda familial</div>
+    <div id="agenda-list"></div>
+</section>
+
+<!-- ANNIVERSAIRES -->
+<section class="birthdays">
+    <div class="block-title">🎂 Anniversaires à venir</div>
+    <div id="birthday-list"></div>
+</section>
+
+<!-- METEO -->
+<section class="weather">
+
     <div class="weather-main">
+
         <div id="weather-icon">☀️</div>
+
         <div>
             <div id="temperature">--°</div>
-            <div id="weather-label">Chargement météo...</div>
+            <div id="weather-label">Cavaillon</div>
             <div id="wind"></div>
         </div>
+
     </div>
 
     <div class="forecast" id="forecast"></div>
-    <div id="error"></div>
-</div>
+
+</section>
 
 <script>
 
-/* HORLOGE */
+/* =========================================================
+   PHOTOS
+   ========================================================= */
+
+const photos = [
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=90",
+    "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=90",
+    "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1920&q=90",
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=90",
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920&q=90"
+];
+
+let photoIndex = 0;
+
+function changeBackground() {
+
+    const bg = document.getElementById("background");
+
+    bg.style.opacity = 0;
+
+    setTimeout(() => {
+        bg.style.backgroundImage = `url("${photos[photoIndex]}")`;
+        bg.style.opacity = 1;
+
+        photoIndex = (photoIndex + 1) % photos.length;
+    }, 700);
+}
+
+changeBackground();
+
+/* changement toutes les 2 minutes */
+setInterval(changeBackground, 120000);
+
+
+/* =========================================================
+   HORLOGE
+   ========================================================= */
 
 function updateClock() {
+
     const now = new Date();
 
     document.getElementById("time").textContent =
@@ -153,38 +330,265 @@ function updateClock() {
             minute: "2-digit"
         });
 
-    document.getElementById("date").textContent =
+    const date =
         now.toLocaleDateString("fr-FR", {
             weekday: "long",
             day: "numeric",
             month: "long"
         });
+
+    document.getElementById("date").textContent =
+        date.charAt(0).toUpperCase() + date.slice(1);
 }
 
 updateClock();
 setInterval(updateClock, 1000);
 
 
-/* ICONES METEO */
+/* =========================================================
+   AGENDA FAMILIAL
+   POUR L'INSTANT : DONNEES DE TEST
+   ========================================================= */
+
+const familyEvents = [
+
+    {
+        date: "2026-08-10",
+        time: "18:00",
+        icon: "⚽",
+        title: "Jules • Entraînement"
+    },
+
+    {
+        date: "2026-08-11",
+        time: "18:00",
+        icon: "⚽",
+        title: "Jules • Entraînement"
+    },
+
+    {
+        date: "2026-08-12",
+        time: "18:00",
+        icon: "⚽",
+        title: "Jules • Entraînement"
+    },
+
+    {
+        date: "2026-08-13",
+        time: "18:00",
+        icon: "⚽",
+        title: "Jules • Entraînement"
+    }
+
+];
+
+function loadAgenda() {
+
+    const container = document.getElementById("agenda-list");
+
+    container.innerHTML = "";
+
+    const now = new Date();
+    now.setHours(0,0,0,0);
+
+    const futureEvents = familyEvents
+        .filter(event => {
+            const eventDate =
+                new Date(event.date + "T12:00:00");
+
+            return eventDate >= now;
+        })
+        .sort((a,b) => a.date.localeCompare(b.date))
+        .slice(0,4);
+
+    if (futureEvents.length === 0) {
+
+        container.innerHTML =
+            `<div class="agenda-title">Aucun événement à venir</div>`;
+
+        return;
+    }
+
+    futureEvents.forEach(event => {
+
+        const date =
+            new Date(event.date + "T12:00:00");
+
+        const weekday =
+            date.toLocaleDateString("fr-FR", {
+                weekday: "short"
+            });
+
+        const day =
+            date.toLocaleDateString("fr-FR", {
+                day: "numeric"
+            });
+
+        const row =
+            document.createElement("div");
+
+        row.className = "agenda-item";
+
+        row.innerHTML = `
+            <div>
+                <div class="agenda-date">
+                    ${day} ${weekday}
+                </div>
+
+                <div class="agenda-time">
+                    ${event.time}
+                </div>
+            </div>
+
+            <div class="agenda-title">
+                ${event.icon} ${event.title}
+            </div>
+        `;
+
+        container.appendChild(row);
+    });
+}
+
+loadAgenda();
+
+
+/* =========================================================
+   ANNIVERSAIRES
+   ========================================================= */
+
+const birthdays = [
+
+    {
+        name: "Jules",
+        month: 9,
+        day: 14
+    },
+
+    {
+        name: "Noa",
+        month: 11,
+        day: 3
+    },
+
+    {
+        name: "Mélanie",
+        month: 12,
+        day: 20
+    },
+
+    {
+        name: "Cédric",
+        month: 4,
+        day: 12
+    }
+
+];
+
+function loadBirthdays() {
+
+    const container =
+        document.getElementById("birthday-list");
+
+    const today = new Date();
+
+    const upcoming =
+        birthdays.map(b => {
+
+            let next =
+                new Date(
+                    today.getFullYear(),
+                    b.month - 1,
+                    b.day
+                );
+
+            if (next < today) {
+
+                next =
+                    new Date(
+                        today.getFullYear() + 1,
+                        b.month - 1,
+                        b.day
+                    );
+            }
+
+            return {
+                ...b,
+                next
+            };
+
+        })
+        .sort((a,b) => a.next - b.next)
+        .slice(0,3);
+
+    container.innerHTML = "";
+
+    upcoming.forEach(b => {
+
+        const row =
+            document.createElement("div");
+
+        row.className = "birthday-item";
+
+        row.innerHTML = `
+            <span>🎂 ${b.name}</span>
+
+            <span class="birthday-date">
+                ${b.next.toLocaleDateString("fr-FR", {
+                    day: "numeric",
+                    month: "long"
+                })}
+            </span>
+        `;
+
+        container.appendChild(row);
+    });
+}
+
+loadBirthdays();
+
+
+/* =========================================================
+   METEO
+   ========================================================= */
 
 function weatherInfo(code) {
-    if (code === 0) return ["☀️", "Ensoleillé"];
-    if (code === 1) return ["🌤️", "Peu nuageux"];
-    if (code === 2) return ["⛅", "Partiellement nuageux"];
-    if (code === 3) return ["☁️", "Couvert"];
-    if (code === 45 || code === 48) return ["🌫️", "Brouillard"];
-    if (code >= 51 && code <= 57) return ["🌦️", "Bruine"];
-    if (code >= 61 && code <= 67) return ["🌧️", "Pluie"];
-    if (code >= 71 && code <= 77) return ["🌨️", "Neige"];
-    if (code >= 80 && code <= 82) return ["🌦️", "Averses"];
-    if (code >= 85 && code <= 86) return ["🌨️", "Averses de neige"];
-    if (code >= 95) return ["⛈️", "Orage"];
+
+    if (code === 0)
+        return ["☀️", "Ensoleillé"];
+
+    if (code === 1)
+        return ["🌤️", "Peu nuageux"];
+
+    if (code === 2)
+        return ["⛅", "Partiellement nuageux"];
+
+    if (code === 3)
+        return ["☁️", "Couvert"];
+
+    if (code === 45 || code === 48)
+        return ["🌫️", "Brouillard"];
+
+    if (code >= 51 && code <= 57)
+        return ["🌦️", "Bruine"];
+
+    if (code >= 61 && code <= 67)
+        return ["🌧️", "Pluie"];
+
+    if (code >= 71 && code <= 77)
+        return ["🌨️", "Neige"];
+
+    if (code >= 80 && code <= 82)
+        return ["🌦️", "Averses"];
+
+    if (code >= 85 && code <= 86)
+        return ["🌨️", "Neige"];
+
+    if (code >= 95)
+        return ["⛈️", "Orage"];
 
     return ["🌤️", "Variable"];
 }
 
-
-/* METEO CAVAILLON */
 
 async function loadWeather() {
 
@@ -198,67 +602,124 @@ async function loadWeather() {
 
     try {
 
-        const response = await fetch(url);
-        const data = await response.json();
+        const response =
+            await fetch(url);
 
-        const currentInfo = weatherInfo(data.current.weather_code);
+        const data =
+            await response.json();
 
-        document.getElementById("weather-icon").textContent = currentInfo[0];
-        document.getElementById("temperature").textContent =
-            Math.round(data.current.temperature_2m) + "°";
+        const current =
+            weatherInfo(
+                data.current.weather_code
+            );
 
-        document.getElementById("weather-label").textContent =
-            "Cavaillon • " + currentInfo[1];
+        document.getElementById(
+            "weather-icon"
+        ).textContent =
+            current[0];
 
-        document.getElementById("wind").textContent =
-            "Vent " + Math.round(data.current.wind_speed_10m) + " km/h";
+        document.getElementById(
+            "temperature"
+        ).textContent =
+            Math.round(
+                data.current.temperature_2m
+            ) + "°";
 
-        const forecast = document.getElementById("forecast");
+        document.getElementById(
+            "weather-label"
+        ).textContent =
+            "Cavaillon • " + current[1];
+
+        document.getElementById(
+            "wind"
+        ).textContent =
+            "Vent " +
+            Math.round(
+                data.current.wind_speed_10m
+            ) +
+            " km/h";
+
+        const forecast =
+            document.getElementById(
+                "forecast"
+            );
+
         forecast.innerHTML = "";
 
-        for (let i = 0; i < data.daily.time.length; i++) {
+        for (
+            let i = 0;
+            i < data.daily.time.length;
+            i++
+        ) {
 
-            const dayDate = new Date(data.daily.time[i] + "T12:00:00");
+            const date =
+                new Date(
+                    data.daily.time[i] +
+                    "T12:00:00"
+                );
 
             const dayName =
                 i === 0
                 ? "Aujourd’hui"
-                : dayDate.toLocaleDateString("fr-FR", {
-                    weekday: "short"
-                });
+                : date.toLocaleDateString(
+                    "fr-FR",
+                    {
+                        weekday: "short"
+                    }
+                );
 
-            const info = weatherInfo(data.daily.weather_code[i]);
+            const info =
+                weatherInfo(
+                    data.daily.weather_code[i]
+                );
 
-            const row = document.createElement("div");
-            row.className = "forecast-day";
+            const row =
+                document.createElement("div");
+
+            row.className =
+                "forecast-day";
 
             row.innerHTML = `
-                <div class="day">${dayName}</div>
-                <div class="icon">${info[0]}</div>
+                <div class="day">
+                    ${dayName}
+                </div>
+
+                <div class="icon">
+                    ${info[0]}
+                </div>
+
                 <div class="temps">
-                    ${Math.round(data.daily.temperature_2m_max[i])}°
+                    ${Math.round(
+                        data.daily.temperature_2m_max[i]
+                    )}°
                     /
-                    ${Math.round(data.daily.temperature_2m_min[i])}°
+                    ${Math.round(
+                        data.daily.temperature_2m_min[i]
+                    )}°
                 </div>
             `;
 
             forecast.appendChild(row);
         }
 
-    } catch (e) {
+    }
 
-        document.getElementById("weather-label").textContent =
+    catch(error) {
+
+        document.getElementById(
+            "weather-label"
+        ).textContent =
             "Météo indisponible";
-
-        document.getElementById("error").textContent =
-            "Nouvelle tentative automatique…";
     }
 }
 
 loadWeather();
 
 /* actualisation météo toutes les 15 minutes */
-setInterval(loadWeather, 15 * 60 * 1000);
+setInterval(
+    loadWeather,
+    15 * 60 * 1000
+);
 
 </script>
 
