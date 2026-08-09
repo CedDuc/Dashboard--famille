@@ -611,18 +611,23 @@ header{
   background:#337bea;
 }
 
-.week-event{
+..week-event{
   margin-top:4px;
 
   font-size:12px;
+  font-weight:600;
 
-  line-height:1.18;
+  line-height:1.25;
 
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+  white-space:normal;
+  overflow:visible;
+  text-overflow:clip;
+
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
 }
-
+  
 .week-time{
   margin-bottom:4px;
 
