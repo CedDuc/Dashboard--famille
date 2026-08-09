@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T23:05:26.066799+02:00",
+  "generatedAt": "2026-08-10T00:59:08.395892+02:00",
   "events": [
     {
       "title": "⚽️ Jules Entrainement ",
@@ -27,6 +27,13 @@
       "location": "Stade Saint Hilaire Chemin de St Hilaire & Chemin de la Florane, 84170 Monteux, France",
       "start": "2026-08-13T18:00:00+02:00",
       "end": "2026-08-13T19:30:00+02:00",
+      "allDay": false
+    },
+    {
+      "title": "⚽️ Jules Entraînement",
+      "location": "Stade Saint Hilaire Chemin de St Hilaire & Chemin de la Florane, 84170 Monteux, France",
+      "start": "2026-08-17T18:00:00+02:00",
+      "end": "2026-08-17T19:30:00+02:00",
       "allDay": false
     }
   ],
