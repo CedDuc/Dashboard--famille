@@ -1,13 +1,6 @@
 {
-  "generatedAt": "2026-08-11T23:28:35.907554+02:00",
+  "generatedAt": "2026-08-12T01:25:36.456697+02:00",
   "events": [
-    {
-      "title": "⚽️ Jules Entrainement",
-      "location": "Stade Saint Hilaire Chemin de St Hilaire & Chemin de la Florane, 84170 Monteux, France",
-      "start": "2026-08-11T18:00:00+02:00",
-      "end": "2026-08-11T19:30:00+02:00",
-      "allDay": false
-    },
     {
       "title": "⚽️ Jules Entraînement",
       "location": "Stade Saint Hilaire Chemin de St Hilaire & Chemin de la Florane, 84170 Monteux, France",
@@ -35,6 +28,20 @@
       "start": "2026-08-18T18:00:00+02:00",
       "end": "2026-08-18T19:30:00+02:00",
       "allDay": false
+    },
+    {
+      "title": "rdv orthondiste pour les deux ",
+      "location": "",
+      "start": "2026-08-19T16:00:00+02:00",
+      "end": "2026-08-19T17:00:00+02:00",
+      "allDay": false
+    },
+    {
+      "title": "⚽️ Jules Match à Barbentane",
+      "location": "Barbentane",
+      "start": "2026-08-19T18:00:00+02:00",
+      "end": "2026-08-19T20:00:00+02:00",
+      "allDay": false
     }
   ],
   "courses": [
@@ -43,5 +50,14 @@
     "Eau"
   ],
   "birthdays": [],
-  "important": []
+  "important": [
+    {
+      "title": "rdv orthondiste pour les deux ",
+      "start": "2026-08-19T16:00:00+02:00"
+    },
+    {
+      "title": "⚽️ Jules Match à Barbentane",
+      "start": "2026-08-19T18:00:00+02:00"
+    }
+  ]
 }
