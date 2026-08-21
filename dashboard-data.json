@@ -1,13 +1,6 @@
 {
-  "generatedAt": "2026-08-21T23:55:38.075676+02:00",
+  "generatedAt": "2026-08-22T00:56:03.809142+02:00",
   "events": [
-    {
-      "title": "Entraînement volley ",
-      "location": "",
-      "start": "2026-08-21T18:30:00+02:00",
-      "end": "2026-08-21T20:30:00+02:00",
-      "allDay": false
-    },
     {
       "title": "Entraînement Jules",
       "location": "Stade Saint Hilaire Chemin de St Hilaire & Chemin de la Florane, 84170 Monteux, France",
@@ -49,6 +42,13 @@
       "start": "2026-08-28T18:30:00+02:00",
       "end": "2026-08-28T20:30:00+02:00",
       "allDay": false
+    },
+    {
+      "title": "Match vs Courthezon",
+      "location": "Stade Saint Hilaire\nChemin de St Hilaire & Chemin de la Florane, 84170 Monteux, France",
+      "start": "2026-08-29T16:00:00+02:00",
+      "end": "2026-08-29T18:00:00+02:00",
+      "allDay": false
     }
   ],
   "courses": [
@@ -61,6 +61,10 @@
     {
       "title": "Match à Vedene",
       "start": "2026-08-26T18:00:00+02:00"
+    },
+    {
+      "title": "Match vs Courthezon",
+      "start": "2026-08-29T16:00:00+02:00"
     }
   ]
 }
