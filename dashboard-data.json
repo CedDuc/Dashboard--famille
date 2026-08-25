@@ -1,13 +1,6 @@
 {
-  "generatedAt": "2026-08-25T23:59:44.123626+02:00",
+  "generatedAt": "2026-08-26T01:02:23.421165+02:00",
   "events": [
-    {
-      "title": "Entraînement Jules",
-      "location": "Stade Saint Hilaire Chemin de St Hilaire & Chemin de la Florane, 84170 Monteux, France",
-      "start": "2026-08-25T18:00:00+02:00",
-      "end": "2026-08-25T19:30:00+02:00",
-      "allDay": false
-    },
     {
       "title": "Rendez-vous chez Point Vision Cavaillon",
       "location": "71 Avenue du Pont, 84300 Cavaillon",
@@ -56,6 +49,13 @@
       "start": "2026-09-01T18:00:00+02:00",
       "end": "2026-09-01T19:30:00+02:00",
       "allDay": false
+    },
+    {
+      "title": "Match à Ventoux Sud",
+      "location": "Mazan\nFrance",
+      "start": "2026-09-02T18:00:00+02:00",
+      "end": "2026-09-02T20:00:00+02:00",
+      "allDay": false
     }
   ],
   "courses": [
@@ -76,6 +76,10 @@
     {
       "title": "Match vs Courthezon",
       "start": "2026-08-29T16:00:00+02:00"
+    },
+    {
+      "title": "Match à Ventoux Sud",
+      "start": "2026-09-02T18:00:00+02:00"
     }
   ]
 }
