@@ -1,13 +1,6 @@
 {
-  "generatedAt": "2026-08-31T23:51:32.262931+02:00",
+  "generatedAt": "2026-09-01T00:06:59.193644+02:00",
   "events": [
-    {
-      "title": "Entraînement Jules",
-      "location": "Stade Saint Hilaire Chemin de St Hilaire & Chemin de la Florane, 84170 Monteux, France",
-      "start": "2026-08-31T18:00:00+02:00",
-      "end": "2026-08-31T19:30:00+02:00",
-      "allDay": false
-    },
     {
       "title": "Entraînement Jules",
       "location": "Stade Saint Hilaire Chemin de St Hilaire & Chemin de la Florane, 84170 Monteux, France",
@@ -41,6 +34,13 @@
       "location": "",
       "start": "2026-09-06T10:00:00+02:00",
       "end": "2026-09-06T12:00:00+02:00",
+      "allDay": false
+    },
+    {
+      "title": "Entraînement volley ",
+      "location": "Collège Voltaire\n68 Avenue Georges Braque, 84700 Sorgues, France",
+      "start": "2026-09-08T18:00:00+02:00",
+      "end": "2026-09-08T20:00:00+02:00",
       "allDay": false
     }
   ],
