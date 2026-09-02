@@ -1,13 +1,6 @@
 {
-  "generatedAt": "2026-09-02T23:54:18.396747+02:00",
+  "generatedAt": "2026-09-03T00:13:08.922800+02:00",
   "events": [
-    {
-      "title": "Match à Ventoux Sud",
-      "location": "Mazan\nFrance",
-      "start": "2026-09-02T18:00:00+02:00",
-      "end": "2026-09-02T20:00:00+02:00",
-      "allDay": false
-    },
     {
       "title": "Entraînement Jules",
       "location": "Stade Saint Hilaire Chemin de St Hilaire & Chemin de la Florane, 84170 Monteux, France",
@@ -44,10 +37,6 @@
   ],
   "birthdays": [],
   "important": [
-    {
-      "title": "Match à Ventoux Sud",
-      "start": "2026-09-02T18:00:00+02:00"
-    },
     {
       "title": "Match Gambardella",
       "start": "2026-09-06T10:00:00+02:00"
