@@ -1,13 +1,6 @@
 {
-  "generatedAt": "2026-09-06T23:52:46.014438+02:00",
+  "generatedAt": "2026-09-07T00:12:06.592757+02:00",
   "events": [
-    {
-      "title": "Match Gambardella",
-      "location": "",
-      "start": "2026-09-06T10:00:00+02:00",
-      "end": "2026-09-06T12:00:00+02:00",
-      "allDay": false
-    },
     {
       "title": "Entraînement volley ",
       "location": "Collège Voltaire\n68 Avenue Georges Braque, 84700 Sorgues, France",
@@ -29,10 +22,5 @@
     "Eau"
   ],
   "birthdays": [],
-  "important": [
-    {
-      "title": "Match Gambardella",
-      "start": "2026-09-06T10:00:00+02:00"
-    }
-  ]
+  "important": []
 }
