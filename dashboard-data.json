@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T22:46:55.386508+02:00",
+  "generatedAt": "2026-09-08T01:20:11.823284+02:00",
   "events": [
     {
       "title": "Entraînement volley ",
@@ -13,6 +13,13 @@
       "location": "",
       "start": "2026-09-11T18:30:00+02:00",
       "end": "2026-09-11T20:30:00+02:00",
+      "allDay": false
+    },
+    {
+      "title": "Entraînement volley ",
+      "location": "Collège Voltaire\n68 Avenue Georges Braque, 84700 Sorgues, France",
+      "start": "2026-09-15T18:00:00+02:00",
+      "end": "2026-09-15T20:00:00+02:00",
       "allDay": false
     }
   ],
