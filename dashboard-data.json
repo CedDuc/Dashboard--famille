@@ -1,13 +1,6 @@
 {
-  "generatedAt": "2026-09-28T18:00:23.741901+02:00",
+  "generatedAt": "2026-09-29T00:02:08.547192+02:00",
   "events": [
-    {
-      "title": "Rdv Noa chez Loic",
-      "location": "",
-      "start": "2026-09-28T17:00:00+02:00",
-      "end": "2026-09-28T18:00:00+02:00",
-      "allDay": false
-    },
     {
       "title": "Entraînement volley ",
       "location": "Collège Voltaire\n68 Avenue Georges Braque, 84700 Sorgues, France",
@@ -21,6 +14,13 @@
       "start": "2026-10-02T18:30:00+02:00",
       "end": "2026-10-02T20:30:00+02:00",
       "allDay": false
+    },
+    {
+      "title": "Entraînement volley ",
+      "location": "Collège Voltaire\n68 Avenue Georges Braque, 84700 Sorgues, France",
+      "start": "2026-10-06T18:00:00+02:00",
+      "end": "2026-10-06T20:00:00+02:00",
+      "allDay": false
     }
   ],
   "courses": [
@@ -29,10 +29,5 @@
     "Eau"
   ],
   "birthdays": [],
-  "important": [
-    {
-      "title": "Rdv Noa chez Loic",
-      "start": "2026-09-28T17:00:00+02:00"
-    }
-  ]
+  "important": []
 }
