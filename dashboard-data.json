@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T17:09:27.350125+02:00",
+  "generatedAt": "2026-10-06T00:01:45.352703+02:00",
   "events": [
     {
       "title": "Rdv loison vegeto",
@@ -27,6 +27,13 @@
       "location": "",
       "start": "2026-10-10T12:00:00+02:00",
       "end": "2026-10-10T13:00:00+02:00",
+      "allDay": false
+    },
+    {
+      "title": "Entraînement volley ",
+      "location": "Collège Voltaire\n68 Avenue Georges Braque, 84700 Sorgues, France",
+      "start": "2026-10-13T18:00:00+02:00",
+      "end": "2026-10-13T20:00:00+02:00",
       "allDay": false
     }
   ],
