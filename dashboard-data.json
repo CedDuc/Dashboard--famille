@@ -1,13 +1,6 @@
 {
-  "generatedAt": "2026-10-10T20:53:23.222433+02:00",
+  "generatedAt": "2026-10-11T00:18:12.762091+02:00",
   "events": [
-    {
-      "title": "Rdv Jules chez Loic",
-      "location": "",
-      "start": "2026-10-10T12:00:00+02:00",
-      "end": "2026-10-10T13:00:00+02:00",
-      "allDay": false
-    },
     {
       "title": "Entraînement volley ",
       "location": "Collège Voltaire\n68 Avenue Georges Braque, 84700 Sorgues, France",
@@ -29,10 +22,5 @@
     "Eau"
   ],
   "birthdays": [],
-  "important": [
-    {
-      "title": "Rdv Jules chez Loic",
-      "start": "2026-10-10T12:00:00+02:00"
-    }
-  ]
+  "important": []
 }
