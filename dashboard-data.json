@@ -1,11 +1,18 @@
 {
-  "generatedAt": "2026-10-29T21:56:57.689529+01:00",
+  "generatedAt": "2026-10-30T01:45:28.764681+01:00",
   "events": [
     {
       "title": "Entraînement volley ",
       "location": "",
       "start": "2026-10-30T18:30:00+01:00",
       "end": "2026-10-30T20:30:00+01:00",
+      "allDay": false
+    },
+    {
+      "title": "Entraînement volley ",
+      "location": "",
+      "start": "2026-11-06T18:30:00+01:00",
+      "end": "2026-11-06T20:30:00+01:00",
       "allDay": false
     }
   ],
