@@ -1,13 +1,6 @@
 {
-  "generatedAt": "2026-11-16T19:47:38.851673+01:00",
+  "generatedAt": "2026-11-17T03:21:47.101222+01:00",
   "events": [
-    {
-      "title": "Nouvel évènement",
-      "location": "",
-      "start": "2026-11-16T18:15:00+01:00",
-      "end": "2026-11-16T18:20:00+01:00",
-      "allDay": false
-    },
     {
       "title": "Entraînement volley ",
       "location": "Collège Voltaire\n68 Avenue Georges Braque, 84700 Sorgues, France",
@@ -21,6 +14,13 @@
       "start": "2026-11-20T18:30:00+01:00",
       "end": "2026-11-20T20:30:00+01:00",
       "allDay": false
+    },
+    {
+      "title": "Entraînement volley ",
+      "location": "Collège Voltaire\n68 Avenue Georges Braque, 84700 Sorgues, France",
+      "start": "2026-11-24T18:00:00+01:00",
+      "end": "2026-11-24T20:00:00+01:00",
+      "allDay": false
     }
   ],
   "courses": [
@@ -29,10 +29,5 @@
     "Eau"
   ],
   "birthdays": [],
-  "important": [
-    {
-      "title": "Nouvel évènement",
-      "start": "2026-11-16T18:15:00+01:00"
-    }
-  ]
+  "important": []
 }
